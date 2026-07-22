@@ -5,6 +5,7 @@ import AboutHeroSection from '@/pages/about/hero-section';
 import MissionVisionSection from '@/pages/about/mission-vision-section';
 import OurStorySection from '@/pages/about/our-story-section';
 import StatsSection from '@/pages/about/stats-section';
+import TravelersVoicesSection from '@/pages/about/travelers-voices-section';
 import AboutWhyChooseSection from '@/pages/about/why-choose-section';
 import { type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
@@ -19,6 +20,7 @@ export default function About() {
             <AboutHeroSection />
             <OurStorySection />
             <ChairmanMessageSection />
+            <TravelersVoicesSection />
             <MissionVisionSection />
             <AboutWhyChooseSection />
             <StatsSection />

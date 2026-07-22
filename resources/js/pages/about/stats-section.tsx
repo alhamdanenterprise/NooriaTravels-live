@@ -9,17 +9,15 @@ const stats: { icon: LucideIcon; value: string; label: string }[] = [
 
 export default function StatsSection() {
     return (
-        <section data-aos="fade-up" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 gap-6 rounded-2xl border border-gray-100 bg-white p-8 shadow-sm lg:grid-cols-4">
+        <section data-aos="fade-up" className="bg-linen mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
                 {stats.map((stat) => (
-                    <div key={stat.label} className="flex items-center gap-3 text-center sm:text-left">
-                        <span className="bg-brand-navy/10 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full sm:flex">
-                            <stat.icon className="text-brand-navy h-6 w-6" />
+                    <div key={stat.label} className="group flex flex-col items-center text-center">
+                        <span className="from-brand-navy to-brand-blue flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br shadow-lg transition-transform duration-300 group-hover:scale-110">
+                            <stat.icon className="h-8 w-8 text-white" />
                         </span>
-                        <div>
-                            <p className="text-brand-navy text-2xl font-bold">{stat.value}</p>
-                            <p className="text-xs text-gray-500 sm:text-sm">{stat.label}</p>
-                        </div>
+                        <p className="text-brand-navy mt-4 text-4xl font-bold sm:text-5xl">{stat.value}</p>
+                        <p className="mt-1 text-sm text-gray-500">{stat.label}</p>
                     </div>
                 ))}
             </div>
