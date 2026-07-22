@@ -2,8 +2,8 @@ import InputError from '@/components/input-error';
 import { type SharedData } from '@/types';
 import { useForm, usePage } from '@inertiajs/react';
 import { RiSendPlaneFill } from '@remixicon/react';
-import { CheckCircle2, LoaderCircle } from 'lucide-react';
-import { type FormEventHandler } from 'react';
+import { CheckCircle2, ChevronDown, LoaderCircle } from 'lucide-react';
+import { type FormEventHandler, useRef, useState } from 'react';
 
 const subjects = ['General Inquiry', 'Umrah Packages', 'Visit Visa', 'Air Ticketing', 'Hotels & Accommodation', 'Transportation', 'Tour Packages'];
 
@@ -13,6 +13,7 @@ interface ContactFormData {
     phone: string;
     subject: string;
     message: string;
+    website: string;
 }
 
 const inputClasses =
@@ -26,13 +27,27 @@ export default function ContactForm() {
         phone: '',
         subject: '',
         message: '',
+        website: '',
     });
+
+    const [successMessage, setSuccessMessage] = useState(flash.success ?? null);
+    const dismissTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
         post(route('contact.store'), {
             preserveScroll: true,
-            onSuccess: () => reset(),
+            onSuccess: (page) => {
+                reset('name', 'email', 'phone', 'subject', 'message');
+
+                const message = (page.props as SharedData).flash.success ?? null;
+                setSuccessMessage(message);
+
+                if (dismissTimer.current) {
+                    clearTimeout(dismissTimer.current);
+                }
+                dismissTimer.current = setTimeout(() => setSuccessMessage(null), 6000);
+            },
         });
     };
 
@@ -41,14 +56,27 @@ export default function ContactForm() {
             <h2 className="text-brand-navy text-2xl font-bold">Send Us a Message</h2>
             <p className="mt-2 text-sm text-gray-600">Fill out the form below and our team will get back to you shortly.</p>
 
-            {flash.success && (
-                <div className="mt-5 flex items-center gap-2 rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
+            {successMessage && (
+                <div className="mt-5 flex items-center gap-2 rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700 transition-opacity duration-500">
                     <CheckCircle2 className="h-5 w-5 shrink-0" />
-                    {flash.success}
+                    {successMessage}
                 </div>
             )}
 
             <form onSubmit={submit} className="mt-6 space-y-5">
+                {/* Honeypot: hidden from real visitors, simple bots that auto-fill every field trip the "prohibited" rule server-side. */}
+                <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+                    <label htmlFor="website">Website</label>
+                    <input
+                        id="website"
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={data.website}
+                        onChange={(e) => setData('website', e.target.value)}
+                    />
+                </div>
+
                 <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                         <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-gray-700">
@@ -101,16 +129,24 @@ export default function ContactForm() {
                         <label htmlFor="subject" className="mb-1.5 block text-sm font-medium text-gray-700">
                             Interested In
                         </label>
-                        <select id="subject" value={data.subject} onChange={(e) => setData('subject', e.target.value)} className={inputClasses}>
-                            <option value="" disabled>
-                                Select a subject
-                            </option>
-                            {subjects.map((subject) => (
-                                <option key={subject} value={subject}>
-                                    {subject}
+                        <div className="relative">
+                            <select
+                                id="subject"
+                                value={data.subject}
+                                onChange={(e) => setData('subject', e.target.value)}
+                                className={`${inputClasses} appearance-none pr-10`}
+                            >
+                                <option value="" disabled>
+                                    Select a subject
                                 </option>
-                            ))}
-                        </select>
+                                {subjects.map((subject) => (
+                                    <option key={subject} value={subject}>
+                                        {subject}
+                                    </option>
+                                ))}
+                            </select>
+                            <ChevronDown className="pointer-events-none absolute top-1/2 right-3.5 h-4 w-4 -translate-y-1/2 text-gray-400" />
+                        </div>
                         <InputError message={errors.subject} className="mt-1.5" />
                     </div>
                 </div>

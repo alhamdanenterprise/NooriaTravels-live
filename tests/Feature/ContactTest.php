@@ -53,3 +53,52 @@ it('rejects a subject outside the allowed list', function () {
     $response->assertSessionHasErrors(['subject']);
     Mail::assertNothingSent();
 });
+
+it('rejects a phone number with invalid characters', function () {
+    Mail::fake();
+
+    $response = $this->post('/contact', [
+        'name' => 'Ahmed Khan',
+        'email' => 'ahmed@example.com',
+        'phone' => '<script>alert(1)</script>',
+        'subject' => 'Umrah Packages',
+        'message' => 'I would like to know more.',
+    ]);
+
+    $response->assertSessionHasErrors(['phone']);
+    Mail::assertNothingSent();
+});
+
+it('silently drops submissions that fill the honeypot field', function () {
+    Mail::fake();
+
+    $response = $this->post('/contact', [
+        'name' => 'Bot',
+        'email' => 'bot@example.com',
+        'phone' => '+966 501234567',
+        'subject' => 'Umrah Packages',
+        'message' => 'Spam message.',
+        'website' => 'https://spam.example.com',
+    ]);
+
+    $response->assertSessionHasErrors(['website']);
+    Mail::assertNothingSent();
+});
+
+it('rate limits repeated contact form submissions', function () {
+    Mail::fake();
+
+    $payload = [
+        'name' => 'Ahmed Khan',
+        'email' => 'ahmed@example.com',
+        'phone' => '+966 501234567',
+        'subject' => 'Umrah Packages',
+        'message' => 'I would like to know more.',
+    ];
+
+    for ($i = 0; $i < 5; $i++) {
+        $this->post('/contact', $payload)->assertRedirect();
+    }
+
+    $this->post('/contact', $payload)->assertStatus(429);
+});
