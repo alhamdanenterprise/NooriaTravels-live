@@ -200,8 +200,10 @@
         background-color: var(--color-brand-navy);
         background-image:
             radial-gradient(circle at 90% 0%, rgba(251, 189, 8, 0.16), transparent 55%),
-            repeating-linear-gradient(58deg, transparent, transparent 33px, rgba(251, 189, 8, 0.16) 33px, rgba(251, 189, 8, 0.16) 34px),
-            repeating-linear-gradient(-51deg, transparent, transparent 45px, rgba(251, 189, 8, 0.13) 45px, rgba(251, 189, 8, 0.13) 46px),
-            repeating-linear-gradient(11deg, transparent, transparent 58px, rgba(251, 189, 8, 0.1) 58px, rgba(251, 189, 8, 0.1) 59px);
+            url('/images/gold-lines-texture.svg');
+        background-size:
+            auto,
+            240px 240px;
+        background-repeat: repeat, repeat;
     }
 }
