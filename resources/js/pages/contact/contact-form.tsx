@@ -1,11 +1,10 @@
 import InputError from '@/components/input-error';
+import SubjectSelect from '@/pages/contact/subject-select';
 import { type SharedData } from '@/types';
 import { useForm, usePage } from '@inertiajs/react';
 import { RiSendPlaneFill } from '@remixicon/react';
-import { CheckCircle2, ChevronDown, LoaderCircle } from 'lucide-react';
+import { CheckCircle2, LoaderCircle } from 'lucide-react';
 import { type FormEventHandler, useRef, useState } from 'react';
-
-const subjects = ['General Inquiry', 'Umrah Packages', 'Visit Visa', 'Air Ticketing', 'Hotels & Accommodation', 'Transportation', 'Tour Packages'];
 
 interface ContactFormData {
     name: string;
@@ -129,24 +128,7 @@ export default function ContactForm() {
                         <label htmlFor="subject" className="mb-1.5 block text-sm font-medium text-gray-700">
                             Interested In
                         </label>
-                        <div className="relative">
-                            <select
-                                id="subject"
-                                value={data.subject}
-                                onChange={(e) => setData('subject', e.target.value)}
-                                className={`${inputClasses} appearance-none pr-10`}
-                            >
-                                <option value="" disabled>
-                                    Select a subject
-                                </option>
-                                {subjects.map((subject) => (
-                                    <option key={subject} value={subject}>
-                                        {subject}
-                                    </option>
-                                ))}
-                            </select>
-                            <ChevronDown className="pointer-events-none absolute top-1/2 right-3.5 h-4 w-4 -translate-y-1/2 text-gray-400" />
-                        </div>
+                        <SubjectSelect value={data.subject} onChange={(value) => setData('subject', value)} />
                         <InputError message={errors.subject} className="mt-1.5" />
                     </div>
                 </div>
