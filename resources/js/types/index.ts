@@ -41,6 +41,7 @@ export interface SharedData {
     quote: { message: string; author: string };
     auth: Auth;
     siteSettings: SiteSettings;
+    flash: { success?: string };
     [key: string]: unknown;
 }
 

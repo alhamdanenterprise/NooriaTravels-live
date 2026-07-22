@@ -43,13 +43,13 @@ export default function HeroSection() {
                             View Packages
                             <RiArrowRightLine className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </Link>
-                        <a
-                            href="#contact-info"
+                        <Link
+                            href="/contact"
                             className="group flex items-center gap-2 rounded-md border border-white/40 px-6 py-3 text-sm font-semibold text-white transition duration-200 hover:scale-105 hover:bg-white/10"
                         >
                             Send Inquiry
                             <RiSendPlaneLine className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

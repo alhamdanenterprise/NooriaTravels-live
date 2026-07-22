@@ -76,7 +76,7 @@ export default function SiteFooter({ siteSettings }: { siteSettings: SiteSetting
                         </ul>
                     </div>
 
-                    <div id="contact-info">
+                    <div>
                         <h3 className="text-brand-gold mb-4 font-semibold">Contact Us</h3>
                         <ul className="space-y-3 text-sm text-white/80">
                             <li className="flex items-start gap-2">

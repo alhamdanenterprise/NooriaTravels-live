@@ -1,5 +1,6 @@
 import { whatsappLink } from '@/lib/whatsapp';
 import { type SiteSettings } from '@/types';
+import { Link } from '@inertiajs/react';
 import { RiCustomerService2Line, RiPhoneLine } from '@remixicon/react';
 
 export default function CtaSection({ siteSettings }: { siteSettings: SiteSettings }) {
@@ -22,13 +23,13 @@ export default function CtaSection({ siteSettings }: { siteSettings: SiteSetting
                         <RiCustomerService2Line className="h-4 w-4" />
                         Get Free Consultation
                     </a>
-                    <a
-                        href="#contact-info"
+                    <Link
+                        href="/contact"
                         className="flex items-center gap-2 rounded-md border border-white/50 px-6 py-3 text-sm font-semibold text-white transition duration-200 hover:scale-105 hover:bg-white/10"
                     >
                         <RiPhoneLine className="h-4 w-4" />
                         Contact Us
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>
