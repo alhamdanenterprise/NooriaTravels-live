@@ -29,10 +29,8 @@ export default function SiteNavbar({ siteSettings }: { siteSettings: SiteSetting
     const [mobileOpen, setMobileOpen] = useState(false);
 
     return (
-        <header className="bg-navy-texture relative sticky top-0 z-50 shadow-md">
-            <div className="via-brand-gold/60 absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent to-transparent" />
-
-            <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <header className="bg-brand-navy sticky top-0 z-50 shadow-md">
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
                 <SiteLogo companyName={siteSettings.companyName} />
 
                 <nav className="hidden items-center gap-1 lg:flex">

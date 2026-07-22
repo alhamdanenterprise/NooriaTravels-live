@@ -195,15 +195,4 @@
     .scrollbar-hide::-webkit-scrollbar {
         display: none;
     }
-
-    .bg-navy-texture {
-        background-color: var(--color-brand-navy);
-        background-image:
-            radial-gradient(circle at 90% 0%, rgba(251, 189, 8, 0.16), transparent 55%),
-            url('/images/gold-lines-texture.svg');
-        background-size:
-            auto,
-            240px 240px;
-        background-repeat: repeat, repeat;
-    }
 }

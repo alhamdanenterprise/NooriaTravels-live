@@ -22,10 +22,8 @@ const serviceLinks = [
 
 export default function SiteFooter({ siteSettings }: { siteSettings: SiteSettings }) {
     return (
-        <footer className="bg-navy-texture relative text-white">
-            <div className="via-brand-gold/60 absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent to-transparent" />
-
-            <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <footer className="bg-brand-navy text-white">
+            <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
                 <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1fr]">
                     <div>
                         <SiteLogo companyName={siteSettings.companyName} className="h-12" />
