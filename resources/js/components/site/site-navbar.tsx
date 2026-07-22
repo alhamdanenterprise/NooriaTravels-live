@@ -39,13 +39,13 @@ export default function SiteNavbar({ siteSettings }: { siteSettings: SiteSetting
                     </Link>
 
                     <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-                        <button
-                            type="button"
+                        <Link
+                            href="/services"
                             className="hover:text-brand-gold flex items-center gap-1 rounded-md px-4 py-2 text-sm font-medium text-white transition-colors"
                         >
                             Services
                             <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
-                        </button>
+                        </Link>
 
                         {servicesOpen && (
                             <div className="animate-in fade-in slide-in-from-top-1 absolute top-full left-0 w-64 rounded-lg bg-white p-2 shadow-xl duration-200">
@@ -96,7 +96,12 @@ export default function SiteNavbar({ siteSettings }: { siteSettings: SiteSetting
                     <Link href={navLinks[0].href} className="hover:text-brand-gold block rounded-md px-2 py-2.5 text-sm font-medium text-white">
                         {navLinks[0].label}
                     </Link>
-                    <p className="mt-2 px-2 text-xs font-semibold tracking-wider text-white/60 uppercase">Services</p>
+                    <Link
+                        href="/services"
+                        className="hover:text-brand-gold mt-2 block px-2 text-xs font-semibold tracking-wider text-white/60 uppercase"
+                    >
+                        Services
+                    </Link>
                     {servicesMenu.map((item) => (
                         <Link
                             key={item.href}
