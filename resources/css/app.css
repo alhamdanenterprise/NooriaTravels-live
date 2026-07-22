@@ -195,4 +195,14 @@
     .scrollbar-hide::-webkit-scrollbar {
         display: none;
     }
+
+    .bg-navy-texture {
+        background-color: var(--color-brand-navy);
+        background-image:
+            radial-gradient(circle at 90% 0%, rgba(251, 189, 8, 0.14), transparent 55%),
+            radial-gradient(circle at 1px 1px, rgba(251, 189, 8, 0.09) 1px, transparent 0);
+        background-size:
+            auto,
+            22px 22px;
+    }
 }
