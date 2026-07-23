@@ -96,5 +96,5 @@ const sections: LegalSection[] = [
 ];
 
 export default function PolicyContent({ siteSettings }: { siteSettings: SiteSettings }) {
-    return <LegalContent sections={sections} siteSettings={siteSettings} />;
+    return <LegalContent sections={sections} siteSettings={siteSettings} scrollableToc={false} />;
 }

@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import { type SiteSettings } from '@/types';
 
 export interface LegalSection {
@@ -7,13 +8,26 @@ export interface LegalSection {
     list?: string[];
 }
 
-export default function LegalContent({ sections, siteSettings }: { sections: LegalSection[]; siteSettings: SiteSettings }) {
+export default function LegalContent({
+    sections,
+    siteSettings,
+    scrollableToc = true,
+}: {
+    sections: LegalSection[];
+    siteSettings: SiteSettings;
+    scrollableToc?: boolean;
+}) {
     return (
         <section className="bg-linen py-16 sm:py-20">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid gap-10 lg:grid-cols-[240px_1fr]">
                     <aside className="hidden lg:block">
-                        <nav className="scrollbar-theme sticky top-24 max-h-[calc(100vh-7rem)] space-y-1 overflow-y-auto rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+                        <nav
+                            className={cn(
+                                'sticky top-24 space-y-1 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm',
+                                scrollableToc && 'scrollbar-theme max-h-[calc(100vh-7rem)] overflow-y-auto',
+                            )}
+                        >
                             <p className="text-brand-navy px-2 pb-2 text-xs font-semibold tracking-wide uppercase">On This Page</p>
                             {sections.map((section) => (
                                 <a
