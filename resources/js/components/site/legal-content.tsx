@@ -13,7 +13,7 @@ export default function LegalContent({ sections, siteSettings }: { sections: Leg
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid gap-10 lg:grid-cols-[240px_1fr]">
                     <aside className="hidden lg:block">
-                        <nav className="sticky top-24 max-h-[calc(100vh-7rem)] space-y-1 overflow-y-auto rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+                        <nav className="scrollbar-theme sticky top-24 max-h-[calc(100vh-7rem)] space-y-1 overflow-y-auto rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
                             <p className="text-brand-navy px-2 pb-2 text-xs font-semibold tracking-wide uppercase">On This Page</p>
                             {sections.map((section) => (
                                 <a
