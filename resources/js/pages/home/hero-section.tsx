@@ -18,7 +18,7 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section ref={scope} className="relative flex w-full items-center overflow-hidden bg-[#011e4a]" style={{ aspectRatio: '1672 / 941' }}>
+        <section ref={scope} className="relative flex w-full items-center overflow-hidden bg-[#00123b]" style={{ aspectRatio: '1920 / 1080' }}>
             <img src="/images/hero.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
 
             <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
