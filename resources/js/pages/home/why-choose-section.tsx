@@ -10,7 +10,7 @@ const reasons: { icon: LucideIcon; title: string; description: string }[] = [
 
 export default function WhyChooseSection() {
     return (
-        <div data-aos="fade-right" className="relative z-10 rounded-2xl bg-gray-50 p-8">
+        <div data-aos="fade-right" className="rounded-2xl bg-gray-50 p-8">
             <h2 className="text-brand-navy text-center text-2xl font-bold">Why Choose Us</h2>
             <div className="bg-brand-gold mx-auto mt-3 h-1 w-16 rounded-full" />
 

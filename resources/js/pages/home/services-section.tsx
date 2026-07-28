@@ -45,9 +45,7 @@ export default function ServicesSection() {
     return (
         <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
             <div data-aos="fade-up" className="mx-auto max-w-2xl text-center">
-                <h2 data-journey-anchor="services" className="text-brand-navy text-3xl font-bold">
-                    Our Services
-                </h2>
+                <h2 className="text-brand-navy text-3xl font-bold">Our Services</h2>
                 <div className="bg-brand-gold mx-auto mt-3 h-1 w-16 rounded-full" />
             </div>
 
@@ -55,7 +53,7 @@ export default function ServicesSection() {
                 {services.map((service) => (
                     <div
                         key={service.title}
-                        className="group relative z-10 rounded-xl border border-gray-100 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                        className="group rounded-xl border border-gray-100 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                     >
                         <div className="bg-brand-navy/10 group-hover:bg-brand-navy flex h-12 w-12 items-center justify-center rounded-lg transition-colors duration-300">
                             <service.icon className="text-brand-navy h-6 w-6 transition-colors duration-300 group-hover:text-white" />

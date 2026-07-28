@@ -9,7 +9,7 @@ const steps = [
 
 export default function BookingProcessSection() {
     return (
-        <div data-aos="fade-left" className="relative z-10 rounded-2xl bg-gray-50 p-8">
+        <div data-aos="fade-left" className="rounded-2xl bg-gray-50 p-8">
             <h2 className="text-brand-navy text-center text-2xl font-bold">Our Booking Process</h2>
             <div className="bg-brand-gold mx-auto mt-3 h-1 w-16 rounded-full" />
 
