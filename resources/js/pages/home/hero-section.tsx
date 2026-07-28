@@ -18,11 +18,11 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section ref={scope} className="relative overflow-hidden">
-            <img src="/images/hero.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <section ref={scope} className="relative flex h-[calc(100dvh-64px)] items-center overflow-hidden bg-[#553429]">
+            <img src="/images/hero.jpg" alt="" className="absolute inset-0 h-full w-full object-contain" />
             <div className="absolute inset-0 bg-black/35" />
 
-            <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+            <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
                 <div className="max-w-xl">
                     <p data-hero-eyebrow className="text-brand-gold text-sm font-semibold tracking-wide uppercase">
                         Your Trusted Partner for
