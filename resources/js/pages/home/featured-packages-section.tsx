@@ -7,7 +7,9 @@ export default function FeaturedPackagesSection({ packages }: { packages: Featur
         <section className="bg-gray-50 py-20">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div data-aos="fade-up" className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-brand-navy text-3xl font-bold">Featured Packages</h2>
+                    <h2 data-journey-anchor="featured-packages" className="text-brand-navy text-3xl font-bold">
+                        Featured Packages
+                    </h2>
                     <div className="bg-brand-gold mx-auto mt-3 h-1 w-16 rounded-full" />
                 </div>
 
@@ -18,7 +20,7 @@ export default function FeaturedPackagesSection({ packages }: { packages: Featur
                         return (
                             <div
                                 key={pkg.slug}
-                                className="group overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                                className="group relative z-10 overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                             >
                                 <div className="from-brand-navy to-brand-blue relative flex h-44 items-center justify-center overflow-hidden bg-gradient-to-br">
                                     <TypeIcon

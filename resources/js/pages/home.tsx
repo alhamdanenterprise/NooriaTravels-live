@@ -1,4 +1,4 @@
-import FlowingRoute from '@/components/site/flowing-route';
+import JourneyPath from '@/components/site/journey-path';
 import SiteLayout from '@/layouts/site-layout';
 import AboutSection from '@/pages/home/about-section';
 import BookingProcessSection from '@/pages/home/booking-process-section';
@@ -19,22 +19,21 @@ export default function Home({ featuredPackages, testimonials }: { featuredPacka
         <SiteLayout siteSettings={siteSettings}>
             <Head title="Home" />
 
-            <HeroSection />
-
-            <FlowingRoute>
+            <JourneyPath>
+                <HeroSection />
                 <AboutSection />
                 <ServicesSection />
                 <FeaturedPackagesSection packages={featuredPackages} />
 
                 <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-                    <div className="grid gap-8 lg:grid-cols-2">
+                    <div data-journey-anchor="why-booking" className="grid gap-8 lg:grid-cols-2">
                         <WhyChooseSection />
                         <BookingProcessSection />
                     </div>
                 </section>
 
                 <TestimonialsSection testimonials={testimonials} />
-            </FlowingRoute>
+            </JourneyPath>
 
             <CtaSection siteSettings={siteSettings} />
         </SiteLayout>

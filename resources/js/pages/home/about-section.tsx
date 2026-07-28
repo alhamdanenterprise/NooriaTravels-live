@@ -14,7 +14,9 @@ export default function AboutSection() {
             <div className="grid items-center gap-12 lg:grid-cols-2">
                 <div>
                     <p className="text-brand-gold text-sm font-semibold tracking-wide uppercase">Who We Are</p>
-                    <h2 className="text-brand-navy mt-3 text-3xl font-bold">About Nooria Travels</h2>
+                    <h2 data-journey-anchor="about" className="text-brand-navy mt-3 text-3xl font-bold">
+                        About Nooria Travels
+                    </h2>
                     <div className="bg-brand-gold mt-3 h-1 w-16 rounded-full" />
                     <p className="mt-5 text-sm leading-relaxed text-gray-600 sm:text-base">
                         Nooria Travels is a well-known name in the travel industry, committed to excellence in serving the guests of Allah. We've
@@ -36,7 +38,7 @@ export default function AboutSection() {
                     </Link>
                 </div>
 
-                <div className="from-brand-navy to-brand-blue relative overflow-hidden rounded-2xl bg-gradient-to-br p-8 sm:p-10">
+                <div className="from-brand-navy to-brand-blue relative z-10 overflow-hidden rounded-2xl bg-gradient-to-br p-8 sm:p-10">
                     <Quote className="h-10 w-10 text-white/30" />
                     <p className="mt-4 text-lg font-medium text-white sm:text-xl">"We treat every traveler not just as a customer, but as family."</p>
                     <p className="text-brand-gold mt-2 text-sm font-semibold">— Nooria Travels</p>

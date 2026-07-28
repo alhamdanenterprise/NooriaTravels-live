@@ -5,7 +5,7 @@ import { RiCustomerService2Line, RiPhoneLine } from '@remixicon/react';
 
 export default function CtaSection({ siteSettings }: { siteSettings: SiteSettings }) {
     return (
-        <section data-aos="fade-up" className="bg-brand-blue">
+        <section data-aos="fade-up" data-journey-anchor="cta" className="bg-brand-blue">
             <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-10 sm:px-6 lg:flex-row lg:px-8">
                 <div className="text-center lg:text-left">
                     <h2 className="text-2xl font-bold text-white">Ready to Plan Your Journey?</h2>
