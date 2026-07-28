@@ -19,7 +19,10 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section ref={scope} className="from-brand-navy to-brand-blue relative overflow-hidden bg-gradient-to-br">
+        <section ref={scope} className="relative overflow-hidden">
+            <img src="/images/hero.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <div className="from-brand-navy/95 to-brand-blue/85 absolute inset-0 bg-gradient-to-br" />
+
             <Plane className="absolute -top-10 right-10 h-56 w-56 -rotate-45 text-white/5" strokeWidth={1} />
             <Plane className="absolute right-1/3 -bottom-16 h-40 w-40 -rotate-45 text-white/5" strokeWidth={1} />
 
