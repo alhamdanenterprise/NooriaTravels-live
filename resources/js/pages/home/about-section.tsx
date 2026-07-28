@@ -1,12 +1,5 @@
 import { Link } from '@inertiajs/react';
 import { RiArrowRightLine } from '@remixicon/react';
-import { Globe2, HeartHandshake, Quote, Users } from 'lucide-react';
-
-const highlights = [
-    { icon: Users, label: '1000+ Travelers Guided in Groups' },
-    { icon: Globe2, label: 'Middle East, Europe, Central Asia & Far East' },
-    { icon: HeartHandshake, label: 'Every Traveler Treated Like Family' },
-];
 
 export default function AboutSection() {
     return (
@@ -36,24 +29,8 @@ export default function AboutSection() {
                     </Link>
                 </div>
 
-                <div className="from-brand-navy to-brand-blue relative overflow-hidden rounded-2xl bg-gradient-to-br p-8 sm:p-10">
-                    <Quote className="h-10 w-10 text-white/30" />
-                    <p className="mt-4 text-lg font-medium text-white sm:text-xl">"We treat every traveler not just as a customer, but as family."</p>
-                    <p className="text-brand-gold mt-2 text-sm font-semibold">— Nooria Travels</p>
-
-                    <div className="mt-8 space-y-3">
-                        {highlights.map((item) => (
-                            <div
-                                key={item.label}
-                                className="flex items-center gap-3 rounded-lg bg-white/10 p-3 transition duration-200 hover:translate-x-1 hover:bg-white/20"
-                            >
-                                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/15">
-                                    <item.icon className="h-4 w-4 text-white" />
-                                </span>
-                                <span className="text-sm text-white">{item.label}</span>
-                            </div>
-                        ))}
-                    </div>
+                <div className="overflow-hidden rounded-2xl shadow-xl">
+                    <img src="/images/about-section.png" alt="Nooria Travels - guiding your journey" className="h-full w-full object-cover" />
                 </div>
             </div>
         </section>
