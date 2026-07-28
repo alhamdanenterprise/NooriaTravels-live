@@ -20,11 +20,10 @@ export default function HeroSection() {
     return (
         <section
             ref={scope}
-            className="relative flex max-h-[calc(100dvh-64px)] w-full items-center overflow-hidden bg-[#553429]"
-            style={{ aspectRatio: '2200 / 1238' }}
+            className="relative flex max-h-[calc(100dvh-64px)] w-full items-center overflow-hidden bg-[#011e4a]"
+            style={{ aspectRatio: '1672 / 941' }}
         >
             <img src="/images/hero.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-black/35" />
 
             <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
                 <div className="max-w-xl">
