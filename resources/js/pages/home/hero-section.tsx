@@ -18,7 +18,7 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section ref={scope} className="relative flex h-[calc(100dvh-64px)] w-full items-center overflow-hidden bg-[#010824]">
+        <section ref={scope} className="relative flex h-[calc(100dvh-64px+120px)] w-full items-center overflow-hidden bg-[#010824]">
             <img src="/images/hero.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
 
             <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
