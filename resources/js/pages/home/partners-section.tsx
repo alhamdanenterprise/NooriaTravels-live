@@ -19,12 +19,13 @@ export default function PartnersSection() {
 
                 <div data-aos="fade-up" className="mt-12 flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
                     {partners.map((partner) => (
-                        <img
-                            key={partner.name}
-                            src={partner.image}
-                            alt={partner.name}
-                            className="h-10 w-auto object-contain grayscale transition-all duration-300 hover:grayscale-0 sm:h-12"
-                        />
+                        <div key={partner.name} className="flex h-14 w-36 items-center justify-center">
+                            <img
+                                src={partner.image}
+                                alt={partner.name}
+                                className="max-h-full max-w-full object-contain grayscale transition-all duration-300 hover:grayscale-0"
+                            />
+                        </div>
                     ))}
                 </div>
             </div>
