@@ -4,6 +4,7 @@ import BookingProcessSection from '@/pages/home/booking-process-section';
 import CtaSection from '@/pages/home/cta-section';
 import FeaturedPackagesSection from '@/pages/home/featured-packages-section';
 import HeroSection from '@/pages/home/hero-section';
+import PartnersSection from '@/pages/home/partners-section';
 import ServicesSection from '@/pages/home/services-section';
 import TestimonialsSection from '@/pages/home/testimonials-section';
 import { type FeaturedPackage, type Testimonial } from '@/pages/home/types';
@@ -20,6 +21,7 @@ export default function Home({ featuredPackages, testimonials }: { featuredPacka
 
             <HeroSection />
             <AboutSection />
+            <PartnersSection />
             <ServicesSection />
             <FeaturedPackagesSection packages={featuredPackages} />
 
