@@ -19,7 +19,7 @@ export default function PartnersSection() {
 
                 <div data-aos="fade-up" className="mt-12 flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
                     {partners.map((partner) => (
-                        <div key={partner.name} className="flex h-14 w-36 items-center justify-center">
+                        <div key={partner.name} className="flex h-16 w-40 items-center justify-center">
                             <img
                                 src={partner.image}
                                 alt={partner.name}
