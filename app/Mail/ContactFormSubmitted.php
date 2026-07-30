@@ -29,7 +29,16 @@ class ContactFormSubmitted extends Mailable
     {
         return new Content(
             markdown: 'mail.contact-form-submitted',
-            with: ['submission' => $this->submission],
+            with: ['submission' => array_map($this->escapeMarkdown(...), $this->submission)],
         );
+    }
+
+    /**
+     * Escape CommonMark special characters so submitted text can't inject
+     * headings, links, images, or other formatting into the rendered email.
+     */
+    private function escapeMarkdown(string $value): string
+    {
+        return preg_replace('/([\\\\`*_{}\[\]()#+\-.!|>~])/', '\\\\$1', $value);
     }
 }

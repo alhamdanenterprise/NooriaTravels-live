@@ -18,6 +18,29 @@ interface ContactFormData {
 const inputClasses =
     'focus:border-brand-blue focus:ring-brand-blue/30 w-full rounded-md border border-gray-200 px-4 py-2.5 text-sm text-gray-900 transition placeholder:text-gray-400 focus:ring-2 focus:outline-none';
 
+const MAX_MESSAGE_WORDS = 500;
+
+function countWords(value: string): number {
+    return value.trim().length === 0 ? 0 : value.trim().split(/\s+/).length;
+}
+
+function limitWords(value: string, maxWords: number): string {
+    const words = value.split(/(\s+)/);
+    let wordCount = 0;
+
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].trim() !== '') {
+            wordCount++;
+
+            if (wordCount > maxWords) {
+                return words.slice(0, i).join('');
+            }
+        }
+    }
+
+    return value;
+}
+
 export default function ContactForm() {
     const { flash } = usePage<SharedData>().props;
     const { data, setData, post, processing, errors, reset } = useForm<ContactFormData>({
@@ -84,6 +107,7 @@ export default function ContactForm() {
                         <input
                             id="name"
                             type="text"
+                            maxLength={100}
                             value={data.name}
                             onChange={(e) => setData('name', e.target.value)}
                             className={inputClasses}
@@ -99,6 +123,7 @@ export default function ContactForm() {
                         <input
                             id="email"
                             type="email"
+                            maxLength={100}
                             value={data.email}
                             onChange={(e) => setData('email', e.target.value)}
                             className={inputClasses}
@@ -116,10 +141,12 @@ export default function ContactForm() {
                         <input
                             id="phone"
                             type="text"
+                            inputMode="numeric"
+                            maxLength={20}
                             value={data.phone}
-                            onChange={(e) => setData('phone', e.target.value)}
+                            onChange={(e) => setData('phone', e.target.value.replace(/\D/g, ''))}
                             className={inputClasses}
-                            placeholder="+966 5X XXX XXXX"
+                            placeholder="966501234567"
                         />
                         <InputError message={errors.phone} className="mt-1.5" />
                     </div>
@@ -134,14 +161,19 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                    <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-gray-700">
-                        Message
-                    </label>
+                    <div className="mb-1.5 flex items-center justify-between">
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                            Message
+                        </label>
+                        <span className="text-xs text-gray-400">
+                            {countWords(data.message)} / {MAX_MESSAGE_WORDS} words
+                        </span>
+                    </div>
                     <textarea
                         id="message"
                         rows={5}
                         value={data.message}
-                        onChange={(e) => setData('message', e.target.value)}
+                        onChange={(e) => setData('message', limitWords(e.target.value, MAX_MESSAGE_WORDS))}
                         className={inputClasses}
                         placeholder="Tell us about your travel plans..."
                     />
