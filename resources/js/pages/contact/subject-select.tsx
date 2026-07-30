@@ -22,10 +22,12 @@ export default function SubjectSelect({ value, onChange }: { value: string; onCh
             <SelectPrimitive.Portal>
                 <SelectPrimitive.Content
                     position="popper"
+                    side="bottom"
+                    avoidCollisions={false}
                     sideOffset={8}
-                    className="animate-in fade-in-0 zoom-in-95 z-50 w-[var(--radix-select-trigger-width)] overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xl"
+                    className="animate-in fade-in-0 slide-in-from-top-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2 z-50 max-h-[min(20rem,var(--radix-select-content-available-height))] w-[var(--radix-select-trigger-width)] overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xl duration-200"
                 >
-                    <SelectPrimitive.Viewport className="p-1.5">
+                    <SelectPrimitive.Viewport className="max-h-[inherit] overflow-y-auto p-1.5">
                         {subjects.map((subject) => (
                             <SelectPrimitive.Item
                                 key={subject}

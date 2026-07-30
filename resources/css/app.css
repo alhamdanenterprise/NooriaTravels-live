@@ -158,12 +158,29 @@
     }
 
     html {
-        overflow-x: hidden;
+        overflow-x: clip;
         scroll-behavior: smooth;
     }
 
     body {
         @apply bg-background text-foreground;
+    }
+
+    /*
+      Radix (react-remove-scroll-bar) injects `body[data-scroll-locked] { overflow: hidden !important }`
+      plus a scrollbar-gap compensation margin, and separately sets `body.style.pointerEvents = 'none'`,
+      whenever a Select/Dialog/Popover opens. Because body was previously a plain (non-scrolling)
+      element, `overflow: hidden` turns it into a new sticky "scroll container", detaching our sticky
+      navbar from the real viewport (it jumps off-screen). The unused compensation margin then shows
+      as a black gap on the right edge, and `pointer-events: none` blocks the page from being scrolled
+      by mouse wheel while the menu is open. Neutralize all three — Radix's own popper positioning
+      already keeps open menus tracking their trigger if the page scrolls.
+    */
+    html body[data-scroll-locked] {
+        overflow: visible !important;
+        pointer-events: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     h1,
