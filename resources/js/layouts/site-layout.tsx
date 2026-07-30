@@ -12,7 +12,7 @@ export default function SiteLayout({ siteSettings, children }: PropsWithChildren
     }, []);
 
     return (
-        <div className="flex min-h-screen flex-col overflow-x-hidden bg-white text-gray-900">
+        <div className="flex min-h-screen flex-col bg-white text-gray-900">
             <SiteNavbar siteSettings={siteSettings} />
             <main className="flex-1">{children}</main>
             <SiteFooter siteSettings={siteSettings} />
