@@ -24,23 +24,23 @@ export default function LegalContent({
                     <aside className="hidden lg:block">
                         <nav
                             className={cn(
-                                'sticky top-24 space-y-1 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm',
-                                scrollableToc && 'scrollbar-theme max-h-[calc(100vh-7rem)] overflow-y-auto',
+                                'sticky top-16 space-y-0.5 rounded-2xl border border-gray-100 bg-white p-3 shadow-sm',
+                                scrollableToc && 'scrollbar-theme max-h-[calc(100vh-5rem)] overflow-y-auto',
                             )}
                         >
-                            <p className="text-brand-navy px-2 pb-2 text-xs font-semibold tracking-wide uppercase">On This Page</p>
+                            <p className="text-brand-navy px-2 pb-1 text-xs font-semibold tracking-wide uppercase">On This Page</p>
                             {sections.map((section) => (
                                 <a
                                     key={section.id}
                                     href={`#${section.id}`}
-                                    className="hover:bg-brand-navy/5 hover:text-brand-navy block rounded-md px-2 py-2 text-sm text-gray-600 transition-colors"
+                                    className="hover:bg-brand-navy/5 hover:text-brand-navy block rounded-md px-2 py-1 text-sm text-gray-600 transition-colors"
                                 >
                                     {section.title}
                                 </a>
                             ))}
                             <a
                                 href="#contact"
-                                className="hover:bg-brand-navy/5 hover:text-brand-navy block rounded-md px-2 py-2 text-sm text-gray-600 transition-colors"
+                                className="hover:bg-brand-navy/5 hover:text-brand-navy block rounded-md px-2 py-1 text-sm text-gray-600 transition-colors"
                             >
                                 Contact Us
                             </a>
