@@ -35,7 +35,7 @@ const reasons: { icon: LucideIcon; title: string; description: string }[] = [
 
 export default function AboutWhyChooseSection() {
     return (
-        <section data-aos="fade-up" className="bg-linen py-20">
+        <section data-aos="fade-up" className="bg-linen py-14">
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-brand-navy text-3xl font-bold">Why Choose Us</h2>

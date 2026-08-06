@@ -2,12 +2,13 @@ import SiteLogo from '@/components/site/site-logo';
 import { whatsappLink } from '@/lib/whatsapp';
 import { type SiteSettings } from '@/types';
 import { Link } from '@inertiajs/react';
-import { RiFacebookFill, RiInstagramLine, RiWhatsappFill, RiYoutubeFill } from '@remixicon/react';
+import { RiFacebookFill, RiInstagramLine, RiTiktokFill, RiWhatsappFill } from '@remixicon/react';
 import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 
 const quickLinks = [
     { label: 'Home', href: route('home') },
     { label: 'About Us', href: '/about' },
+    { label: 'Services', href: '/services' },
     { label: 'Contact Us', href: '/contact' },
 ];
 
@@ -28,14 +29,14 @@ export default function SiteFooter({ siteSettings }: { siteSettings: SiteSetting
                     <div>
                         <SiteLogo companyName={siteSettings.companyName} className="h-12" />
                         <p className="mt-4 text-sm text-white/70">
-                            {siteSettings.companyName} is a trusted Saudi Arabia travel agency offering Umrah, visa, tickets, hotels, and tours with
-                            care, comfort, and integrity.
+                            {siteSettings.companyName} is a trusted travel agency offering Umrah, visa, tickets, hotels, and tours with care,
+                            comfort, and integrity.
                         </p>
                         <div className="mt-5 flex items-center gap-3">
                             {[
                                 { Icon: RiFacebookFill, href: siteSettings.social.facebook },
                                 { Icon: RiInstagramLine, href: siteSettings.social.instagram },
-                                { Icon: RiYoutubeFill, href: siteSettings.social.youtube },
+                                { Icon: RiTiktokFill, href: siteSettings.social.tiktok },
                             ].map(({ Icon, href }, index) => (
                                 <a
                                     key={index}
@@ -82,6 +83,10 @@ export default function SiteFooter({ siteSettings }: { siteSettings: SiteSetting
                             <li className="flex items-start gap-2">
                                 <Phone className="mt-0.5 h-4 w-4 shrink-0" />
                                 {siteSettings.phone}
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <Phone className="mt-0.5 h-4 w-4 shrink-0" />
+                                {siteSettings.phoneAlt}
                             </li>
                             <li className="flex items-start gap-2">
                                 <Mail className="mt-0.5 h-4 w-4 shrink-0" />

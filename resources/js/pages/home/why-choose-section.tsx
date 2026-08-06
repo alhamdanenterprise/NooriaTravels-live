@@ -10,23 +10,21 @@ const reasons: { icon: LucideIcon; title: string; description: string }[] = [
 
 export default function WhyChooseSection() {
     return (
-        <div data-aos="fade-right" className="rounded-2xl bg-gray-50 p-8">
+        <div data-aos="fade-up" className="rounded-2xl bg-gray-50 p-8 sm:p-10">
             <h2 className="text-brand-navy text-center text-2xl font-bold">Why Choose Us</h2>
             <div className="bg-brand-gold mx-auto mt-3 h-1 w-16 rounded-full" />
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
                 {reasons.map((reason) => (
                     <div
                         key={reason.title}
-                        className="group flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+                        className="group flex flex-col items-center rounded-xl bg-white p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
                     >
-                        <div className="bg-brand-navy/10 group-hover:bg-brand-navy flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors duration-300">
-                            <reason.icon className="text-brand-navy h-5 w-5 transition-colors duration-300 group-hover:text-white" />
+                        <div className="bg-brand-navy/10 group-hover:bg-brand-navy flex h-12 w-12 shrink-0 items-center justify-center rounded-lg transition-colors duration-300">
+                            <reason.icon className="text-brand-navy h-6 w-6 transition-colors duration-300 group-hover:text-white" />
                         </div>
-                        <div>
-                            <p className="text-brand-navy text-sm font-semibold">{reason.title}</p>
-                            <p className="mt-1 text-xs text-gray-600">{reason.description}</p>
-                        </div>
+                        <p className="text-brand-navy mt-3 text-sm font-semibold">{reason.title}</p>
+                        <p className="mt-1.5 text-xs text-gray-600">{reason.description}</p>
                     </div>
                 ))}
             </div>

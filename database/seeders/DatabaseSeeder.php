@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,5 +20,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        $this->call(HotelSeeder::class);
+        $this->call(UmrahPackageSeeder::class);
+
+        // Picks up any images already saved under public/images/hotels/{slug}/.
+        Artisan::call('hotels:sync-images');
     }
 }

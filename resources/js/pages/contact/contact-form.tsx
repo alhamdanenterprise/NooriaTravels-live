@@ -146,7 +146,7 @@ export default function ContactForm() {
                             value={data.phone}
                             onChange={(e) => setData('phone', e.target.value.replace(/\D/g, ''))}
                             className={inputClasses}
-                            placeholder="966501234567"
+                            placeholder="923001234567"
                         />
                         <InputError message={errors.phone} className="mt-1.5" />
                     </div>

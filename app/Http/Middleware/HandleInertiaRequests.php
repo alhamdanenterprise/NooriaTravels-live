@@ -63,15 +63,16 @@ class HandleInertiaRequests extends Middleware
         return [
             'companyName' => 'Nooria Travels',
             'tagline' => 'Journey with Faith, Travel with Trust.',
-            'phone' => '+966 50 123 4567',
-            'whatsapp' => '966501234567',
-            'email' => 'info@nooriatravels.com',
-            'address' => 'Office 12, Al Olaya, Riyadh, Kingdom of Saudi Arabia',
-            'officeHours' => 'Mon - Sun: 24/7 Support',
+            'phone' => '+92 336 5099416',
+            'phoneAlt' => '+44 7756 980031',
+            'whatsapp' => '923365099416',
+            'email' => 'nooriatraveltours@gmail.com',
+            'address' => '19/19-A, Dawn Plaza, Bank Road, Saddar, Rawalpindi, Pakistan',
+            'officeHours' => 'Monday - Saturday, 9:00 AM - 7:00 PM',
             'social' => [
-                'facebook' => '#',
-                'instagram' => '#',
-                'youtube' => '#',
+                'facebook' => 'https://www.facebook.com/people/Nooria-Travels/61592861034003/',
+                'instagram' => 'https://www.instagram.com/nooriatravelntours/',
+                'tiktok' => 'https://www.tiktok.com/@nooriatravelntours',
             ],
         ];
     }

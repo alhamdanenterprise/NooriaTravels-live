@@ -15,7 +15,7 @@ class ContactController extends Controller
      * Recipient for contact form submissions.
      * TODO: move into a database-backed Setting model once the admin panel is built.
      */
-    private const RECIPIENT_EMAIL = 'info@nooriatravels.com';
+    private const RECIPIENT_EMAIL = 'nooriatraveltours@gmail.com';
 
     public function index(): Response
     {

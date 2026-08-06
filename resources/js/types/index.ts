@@ -25,6 +25,7 @@ export interface SiteSettings {
     companyName: string;
     tagline: string;
     phone: string;
+    phoneAlt: string;
     whatsapp: string;
     email: string;
     address: string;
@@ -32,7 +33,7 @@ export interface SiteSettings {
     social: {
         facebook: string;
         instagram: string;
-        youtube: string;
+        tiktok: string;
     };
 }
 

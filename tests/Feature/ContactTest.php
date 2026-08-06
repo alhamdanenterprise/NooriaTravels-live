@@ -26,7 +26,7 @@ it('sends an email and redirects back on a valid submission', function () {
 
     Mail::assertSent(ContactFormSubmitted::class, function (ContactFormSubmitted $mail) {
         return $mail->submission['email'] === 'ahmed@example.com'
-            && $mail->hasTo('info@nooriatravels.com');
+            && $mail->hasTo('nooriatraveltours@gmail.com');
     });
 });
 

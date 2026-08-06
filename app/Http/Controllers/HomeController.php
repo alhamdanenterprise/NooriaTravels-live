@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UmrahPackage;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -10,65 +11,19 @@ class HomeController extends Controller
     public function index(): Response
     {
         return Inertia::render('home', [
-            'featuredPackages' => $this->featuredPackages(),
+            'umrahPackages' => UmrahPackage::query()
+                ->where('is_active', true)
+                ->where('is_featured', true)
+                ->orderBy('sort_order')
+                ->limit(3)
+                ->get([
+                    'id', 'slug', 'title', 'description', 'image', 'duration_label',
+                    'makkah_nights', 'madinah_nights', 'makkah_hotel_name', 'makkah_hotel_stars',
+                    'madinah_hotel_name', 'madinah_hotel_stars', 'meal_plan', 'inclusions',
+                    'visa_included', 'flight_included', 'pricing', 'notes', 'is_featured',
+                ]),
             'testimonials' => $this->testimonials(),
         ]);
-    }
-
-    /**
-     * Placeholder package data for the homepage's "Featured Packages" section.
-     * TODO: replace with real Package model data once the domain model is finalized.
-     *
-     * @return array<int, array{
-     *     type: string, title: string, slug: string,
-     *     durationDays: int, hotelStars: int, transportIncluded: bool,
-     *     price: int, currency: string,
-     * }>
-     */
-    private function featuredPackages(): array
-    {
-        return [
-            [
-                'type' => 'Umrah Package',
-                'title' => 'Umrah Comfort Package',
-                'slug' => 'umrah-comfort-package',
-                'durationDays' => 7,
-                'hotelStars' => 4,
-                'transportIncluded' => true,
-                'price' => 3999,
-                'currency' => 'SAR',
-            ],
-            [
-                'type' => 'Umrah Package',
-                'title' => 'Umrah Deluxe Package',
-                'slug' => 'umrah-deluxe-package',
-                'durationDays' => 10,
-                'hotelStars' => 5,
-                'transportIncluded' => true,
-                'price' => 5999,
-                'currency' => 'SAR',
-            ],
-            [
-                'type' => 'Tour Package',
-                'title' => 'Al Ula Tour Package',
-                'slug' => 'al-ula-tour-package',
-                'durationDays' => 5,
-                'hotelStars' => 4,
-                'transportIncluded' => true,
-                'price' => 4499,
-                'currency' => 'SAR',
-            ],
-            [
-                'type' => 'Tour Package',
-                'title' => 'Red Sea Coast Tour',
-                'slug' => 'red-sea-coast-tour',
-                'durationDays' => 4,
-                'hotelStars' => 4,
-                'transportIncluded' => true,
-                'price' => 3499,
-                'currency' => 'SAR',
-            ],
-        ];
     }
 
     /**

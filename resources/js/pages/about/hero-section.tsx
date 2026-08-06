@@ -1,42 +1,42 @@
-import { Compass, Landmark, Plane, Users } from 'lucide-react';
+import { Award, CalendarCheck } from 'lucide-react';
 
-const floatingCards = [
-    { icon: Landmark, label: 'Umrah Journeys', className: 'top-2 left-4 rotate-[-4deg] animate-float', delay: '0s' },
-    { icon: Users, label: 'Family Travel', className: 'top-28 right-2 rotate-[3deg] animate-float', delay: '0.8s' },
-    { icon: Compass, label: 'Tour Destinations', className: 'bottom-16 left-10 rotate-[2deg] animate-float', delay: '1.6s' },
+const credentials = [
+    { icon: Award, label: 'IATA Certified' },
+    { icon: CalendarCheck, label: 'Established 2006' },
 ];
 
 export default function AboutHeroSection() {
     return (
-        <section className="from-brand-navy to-brand-blue relative overflow-hidden bg-gradient-to-br">
-            <Plane className="absolute -top-10 right-10 h-56 w-56 -rotate-45 text-white/5" strokeWidth={1} />
-            <Plane className="absolute right-1/3 -bottom-16 h-40 w-40 -rotate-45 text-white/5" strokeWidth={1} />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,255,255,0.08),transparent_60%)]" />
+        <section className="relative flex min-h-[420px] items-center overflow-hidden bg-white sm:min-h-[520px]">
+            <img
+                src="/images/about/banner.png"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover object-[center_65%] opacity-95"
+            />
+            {/* Fades to #fefefe (the About page's bg-linen sections below) rather than pure
+                white, so the hero meets the next section without a visible seam. */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent from-40% via-[#fefefe]/70 via-75% to-[#fefefe]" />
 
-            <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-28">
-                <div>
-                    <p className="text-brand-gold text-sm font-semibold tracking-wide uppercase">Who We Are</p>
-                    <h1 className="mt-3 text-4xl leading-tight font-bold text-white sm:text-5xl">
-                        About <span className="text-brand-gold">Nooria Travels</span>
-                    </h1>
-                    <p className="mt-5 max-w-2xl text-base text-white/85 sm:text-lg">
-                        Your trusted travel partner for Umrah, visit visas, air tickets, hotels, transportation, accommodation, and unforgettable
-                        journeys across Saudi Arabia and beyond.
-                    </p>
-                </div>
+            <div className="relative mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-8">
+                <p data-aos="fade-up" className="text-brand-gold text-sm font-semibold tracking-wide uppercase">
+                    Who We Are
+                </p>
+                <h1 data-aos="fade-up" className="text-brand-navy mt-3 text-4xl leading-tight font-bold sm:text-5xl">
+                    About Nooria Travels
+                </h1>
+                <p data-aos="fade-up" className="mt-4 text-base text-gray-600 sm:text-lg">
+                    Your trusted travel partner for Umrah, visas, tickets, and hotels across Saudi Arabia and beyond.
+                </p>
 
-                <div className="relative hidden h-72 lg:block">
-                    {floatingCards.map((card) => (
-                        <div
-                            key={card.label}
-                            style={{ animationDelay: card.delay }}
-                            className={`absolute flex items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-5 py-4 shadow-xl backdrop-blur-md transition duration-300 hover:scale-105 hover:bg-white/15 ${card.className}`}
+                <div data-aos="fade-up" className="mt-6 flex flex-wrap justify-center gap-4">
+                    {credentials.map((credential) => (
+                        <span
+                            key={credential.label}
+                            className="text-brand-navy flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold shadow-sm"
                         >
-                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15">
-                                <card.icon className="h-5 w-5 text-white" />
-                            </span>
-                            <span className="text-sm font-semibold whitespace-nowrap text-white">{card.label}</span>
-                        </div>
+                            <credential.icon className="text-brand-gold h-4 w-4" />
+                            {credential.label}
+                        </span>
                     ))}
                 </div>
             </div>

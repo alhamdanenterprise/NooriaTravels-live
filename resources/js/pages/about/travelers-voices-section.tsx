@@ -48,7 +48,7 @@ export default function TravelersVoicesSection() {
     };
 
     return (
-        <section data-aos="fade-up" className="bg-linen py-20">
+        <section data-aos="fade-up" className="bg-linen py-14">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
                     <h2 className="text-brand-navy text-3xl font-bold">Travelers' Voices</h2>
@@ -70,7 +70,7 @@ export default function TravelersVoicesSection() {
                                     ))}
                                 </div>
                                 <div className="mt-4 flex items-center gap-3">
-                                    <span className="from-brand-navy to-brand-blue flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br text-sm font-bold text-white">
+                                    <span className="bg-brand-navy flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white">
                                         {testimonial.initials}
                                     </span>
                                     <div>

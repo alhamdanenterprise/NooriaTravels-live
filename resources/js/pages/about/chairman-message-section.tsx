@@ -1,26 +1,53 @@
 import { Quote } from 'lucide-react';
 
+const leaders = [
+    {
+        image: '/images/founders/hafiz-bashir.jpeg',
+        role: 'Founder & Chairman',
+        message:
+            'Hafiz Bashir Ahmad founded Nooria Travels in 2006 and served as its CEO for many years, building it into a trusted name in the travel trade through honest guidance and dedicated service. Today he continues to guide the company as Chairman.',
+        name: 'Hafiz Bashir Ahmad',
+        title: 'Founder & Chairman, Nooria Travels',
+    },
+    {
+        image: '/images/founders/arshad-hussain.jpeg',
+        role: 'Owner & CEO',
+        message:
+            "Reflecting on the trust travelers have placed in Nooria Travels since 2006, I remain committed to the same values my father built this company on — competent, dedicated and professionally experienced service. We don't see the people we serve as customers, but as family.",
+        name: 'M. Arshad Hussain Hashmi',
+        title: 'Owner & CEO, Nooria Travels',
+    },
+];
+
 export default function ChairmanMessageSection() {
     return (
-        <section data-aos="fade-up" className="from-brand-navy to-brand-blue relative overflow-hidden bg-gradient-to-br py-20">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_50%)]" />
+        <section data-aos="fade-up" className="bg-brand-navy relative overflow-hidden py-14">
+            <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-2xl text-center">
+                    <p className="text-brand-gold text-sm font-semibold tracking-wide uppercase">Our Leadership</p>
+                    <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">Guided by Family, Built on Trust</h2>
+                </div>
 
-            <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-                <div className="rounded-3xl border border-white/15 bg-white/10 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12">
-                    <span className="ring-brand-gold/40 mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-white/25 to-white/5 text-xl font-bold text-white ring-4 backdrop-blur-sm">
-                        HBA
-                    </span>
+                <div className="mt-10 grid gap-6 lg:grid-cols-2">
+                    {leaders.map((leader) => (
+                        <div
+                            key={leader.name}
+                            className="rounded-3xl border border-white/15 bg-white/10 p-6 text-center shadow-2xl backdrop-blur-md sm:p-8"
+                        >
+                            <img
+                                src={leader.image}
+                                alt={leader.name}
+                                className="ring-brand-gold/40 mx-auto h-20 w-20 rounded-full object-cover ring-4"
+                            />
 
-                    <p className="text-brand-gold mt-6 text-sm font-semibold tracking-wide uppercase">Chairman's Message</p>
-                    <Quote className="mx-auto mt-4 h-9 w-9 text-white/40" />
-                    <p className="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
-                        Reflecting on the trust travelers have placed in Nooria Travels over the years, our Chairman credits the company's continuous,
-                        reliable service to its "competent, dedicated and professionally experienced staff." He describes Nooria Travels as a trusted
-                        and dependable brand name in the travel trade &mdash; one that treats every traveler not as a customer, but as family.
-                    </p>
+                            <p className="text-brand-gold mt-6 text-sm font-semibold tracking-wide uppercase">{leader.role}</p>
+                            <Quote className="mx-auto mt-4 h-9 w-9 text-white/40" />
+                            <p className="mt-4 text-sm leading-relaxed text-white/90 sm:text-base">{leader.message}</p>
 
-                    <p className="mt-6 text-sm font-semibold text-white">Hafiz Bashir Ahmad</p>
-                    <p className="text-xs text-white/60">Chairman, Nooria Travels</p>
+                            <p className="mt-6 text-sm font-semibold text-white">{leader.name}</p>
+                            <p className="text-xs text-white/60">{leader.title}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
