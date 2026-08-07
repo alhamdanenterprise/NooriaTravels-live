@@ -9,7 +9,7 @@ const partners: { name: string; image: string }[] = [
 
 export default function PartnersSection() {
     return (
-        <section className="bg-white py-16 sm:py-20">
+        <section className="bg-white py-12 sm:py-14">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div data-aos="fade-up" className="mx-auto max-w-2xl text-center">
                     <h2 className="text-brand-navy text-3xl font-bold">Our Partners</h2>
@@ -23,6 +23,8 @@ export default function PartnersSection() {
                             <img
                                 src={partner.image}
                                 alt={partner.name}
+                                loading="lazy"
+                                decoding="async"
                                 className="max-h-full max-w-full object-contain grayscale transition-all duration-300 hover:grayscale-0"
                             />
                         </div>

@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { type SiteSettings } from '@/types';
+import { ChevronDown } from 'lucide-react';
 
 export interface LegalSection {
     id: string;
@@ -20,7 +21,31 @@ export default function LegalContent({
     return (
         <section className="bg-linen py-16 sm:py-20">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="grid gap-10 lg:grid-cols-[240px_1fr]">
+                <div className="grid gap-6 lg:grid-cols-[240px_1fr] lg:gap-10">
+                    <details className="group rounded-2xl border border-gray-100 bg-white shadow-sm lg:hidden">
+                        <summary className="text-brand-navy flex cursor-pointer list-none items-center justify-between px-4 py-3 text-sm font-semibold marker:content-none">
+                            On This Page
+                            <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+                        </summary>
+                        <nav className="space-y-0.5 border-t border-gray-100 p-3">
+                            {sections.map((section) => (
+                                <a
+                                    key={section.id}
+                                    href={`#${section.id}`}
+                                    className="hover:bg-brand-navy/5 hover:text-brand-navy block rounded-md px-2 py-1.5 text-sm text-gray-600 transition-colors"
+                                >
+                                    {section.title}
+                                </a>
+                            ))}
+                            <a
+                                href="#contact"
+                                className="hover:bg-brand-navy/5 hover:text-brand-navy block rounded-md px-2 py-1.5 text-sm text-gray-600 transition-colors"
+                            >
+                                Contact Us
+                            </a>
+                        </nav>
+                    </details>
+
                     <aside className="hidden lg:block">
                         <nav
                             className={cn(

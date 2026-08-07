@@ -11,8 +11,9 @@ class VisitVisaController extends Controller
     {
         return Inertia::render('coming-soon', [
             'service' => [
-                'name' => 'Visit Visa',
-                'tagline' => 'Fast and reliable visit visa services for Saudi Arabia.',
+                'name' => 'Saudi Arabia Visit Visa',
+                'tagline' => 'Fast, reliable Saudi Arabia visit visa processing for pilgrims and tourists — apply through Nooria Travels with expert guidance.',
+                'path' => '/visit-visa',
             ],
         ]);
     }

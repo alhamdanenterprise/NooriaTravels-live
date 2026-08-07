@@ -1,3 +1,4 @@
+import { seoTags } from '@/components/seo-tags';
 import SiteLayout from '@/layouts/site-layout';
 import CategoryTabs, { ALL_CATEGORY, categories } from '@/pages/umrah-packages/category-tabs';
 import UmrahPackagesHeroSection from '@/pages/umrah-packages/hero-section';
@@ -20,7 +21,15 @@ export default function UmrahPackages({ packages }: { packages: UmrahPackage[] }
 
     return (
         <SiteLayout siteSettings={siteSettings}>
-            <Head title="Umrah Packages" />
+            <Head title="Umrah Packages | Makkah & Madinah Hotels Included">
+                {seoTags({
+                    title: 'Umrah Packages | Makkah & Madinah Hotels Included',
+                    description:
+                        'Affordable Umrah packages with Makkah & Madinah hotel stays, visa, flights & transport included. Compare packages and book your pilgrimage today.',
+                    path: '/umrah-packages',
+                    image: '/images/packages/banner.png',
+                })}
+            </Head>
 
             <UmrahPackagesHeroSection />
 

@@ -12,7 +12,8 @@ class ToursController extends Controller
         return Inertia::render('coming-soon', [
             'service' => [
                 'name' => 'Tour Packages',
-                'tagline' => 'Explore the beauty of Saudi Arabia with our tour packages.',
+                'tagline' => 'Explore curated tour packages across Saudi Arabia with Nooria Travels — comfortable travel, trusted guidance, memorable journeys.',
+                'path' => '/tours',
             ],
         ]);
     }

@@ -1,3 +1,4 @@
+import { seoTags } from '@/components/seo-tags';
 import SiteLayout from '@/layouts/site-layout';
 import ContactForm from '@/pages/contact/contact-form';
 import ContactInfo from '@/pages/contact/contact-info';
@@ -9,7 +10,15 @@ export default function Contact() {
 
     return (
         <SiteLayout siteSettings={siteSettings}>
-            <Head title="Contact Us" />
+            <Head title="Contact Us | Get in Touch With Nooria Travels">
+                {seoTags({
+                    title: 'Contact Us | Get in Touch With Nooria Travels',
+                    description:
+                        'Get in touch with Nooria Travels for Umrah packages, Saudi visas, flights & hotel bookings — call, WhatsApp, or send us a message today.',
+                    path: '/contact',
+                    image: '/images/hero.jpg',
+                })}
+            </Head>
 
             <div className="mx-auto max-w-3xl px-4 pt-12 pb-2 text-center sm:px-6 sm:pt-16 lg:px-8">
                 <p className="text-brand-gold text-sm font-semibold tracking-wide uppercase">Get In Touch</p>

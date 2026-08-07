@@ -90,8 +90,8 @@ export default function HotelPopup({ hotel, siteSettings, onClose }: { hotel: Ho
                         </div>
 
                         {/* Body */}
-                        <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-3">
-                            <div className="space-y-6 lg:col-span-2">
+                        <div className="grid gap-4 p-4 sm:gap-5 sm:p-6 lg:grid-cols-3">
+                            <div className="space-y-5 sm:space-y-6 lg:col-span-2">
                                 {/* Gallery */}
                                 <div>
                                     <div className="from-brand-navy to-brand-blue relative flex h-52 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br sm:h-64">
@@ -122,16 +122,18 @@ export default function HotelPopup({ hotel, siteSettings, onClose }: { hotel: Ho
                                         <button
                                             type="button"
                                             onClick={showPrevious}
-                                            className="absolute top-1/2 left-2.5 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-sm transition hover:bg-white"
+                                            aria-label="Previous photo"
+                                            className="absolute top-1/2 left-2.5 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-sm transition hover:bg-white"
                                         >
-                                            <ChevronLeft className="h-4 w-4" />
+                                            <ChevronLeft className="h-5 w-5" />
                                         </button>
                                         <button
                                             type="button"
                                             onClick={showNext}
-                                            className="absolute top-1/2 right-2.5 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-sm transition hover:bg-white"
+                                            aria-label="Next photo"
+                                            className="absolute top-1/2 right-2.5 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-sm transition hover:bg-white"
                                         >
-                                            <ChevronRight className="h-4 w-4" />
+                                            <ChevronRight className="h-5 w-5" />
                                         </button>
                                     </div>
 

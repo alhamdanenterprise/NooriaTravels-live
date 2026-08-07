@@ -1,3 +1,4 @@
+import { seoTags } from '@/components/seo-tags';
 import SiteLayout from '@/layouts/site-layout';
 import TermsAndConditionsHeroSection from '@/pages/terms-and-conditions/hero-section';
 import TermsContent from '@/pages/terms-and-conditions/terms-content';
@@ -9,7 +10,14 @@ export default function TermsAndConditions() {
 
     return (
         <SiteLayout siteSettings={siteSettings}>
-            <Head title="Terms and Conditions" />
+            <Head title="Terms and Conditions">
+                {seoTags({
+                    title: 'Terms and Conditions',
+                    description:
+                        "Review the terms and conditions governing your use of Nooria Travels' website, Umrah packages, and travel services.",
+                    path: '/terms-and-conditions',
+                })}
+            </Head>
 
             <TermsAndConditionsHeroSection />
             <TermsContent siteSettings={siteSettings} />

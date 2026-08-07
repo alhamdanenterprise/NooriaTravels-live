@@ -12,7 +12,8 @@ class AirTicketingController extends Controller
         return Inertia::render('coming-soon', [
             'service' => [
                 'name' => 'Air Ticketing',
-                'tagline' => 'Domestic and international air tickets at the best prices.',
+                'tagline' => 'Affordable domestic and international air tickets booked through Nooria Travels — best fares for Pakistan, UK, and Saudi Arabia routes.',
+                'path' => '/air-ticketing',
             ],
         ]);
     }

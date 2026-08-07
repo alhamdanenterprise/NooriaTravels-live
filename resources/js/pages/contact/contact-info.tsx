@@ -5,11 +5,11 @@ import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 
 export default function ContactInfo({ siteSettings }: { siteSettings: SiteSettings }) {
     const items = [
-        { icon: Phone, label: 'Phone (Pakistan)', value: siteSettings.phone },
-        { icon: Phone, label: 'Phone (UK)', value: siteSettings.phoneAlt },
-        { icon: Mail, label: 'Email', value: siteSettings.email },
-        { icon: MapPin, label: 'Office', value: siteSettings.address },
-        { icon: Clock, label: 'Support Hours', value: siteSettings.officeHours },
+        { icon: Phone, label: 'Phone (Pakistan)', value: siteSettings.phone, href: `tel:${siteSettings.phone.replace(/\s+/g, '')}` },
+        { icon: Phone, label: 'Phone (UK)', value: siteSettings.phoneAlt, href: `tel:${siteSettings.phoneAlt.replace(/\s+/g, '')}` },
+        { icon: Mail, label: 'Email', value: siteSettings.email, href: `mailto:${siteSettings.email}` },
+        { icon: MapPin, label: 'Office', value: siteSettings.address, href: null },
+        { icon: Clock, label: 'Support Hours', value: siteSettings.officeHours, href: null },
     ];
 
     return (
@@ -29,7 +29,13 @@ export default function ContactInfo({ siteSettings }: { siteSettings: SiteSettin
                     </span>
                     <div>
                         <p className="text-[11px] font-semibold tracking-wide text-gray-500 uppercase">{item.label}</p>
-                        <p className="text-brand-navy mt-0.5 text-sm font-medium">{item.value}</p>
+                        {item.href ? (
+                            <a href={item.href} className="text-brand-navy hover:text-brand-gold mt-0.5 block text-sm font-medium">
+                                {item.value}
+                            </a>
+                        ) : (
+                            <p className="text-brand-navy mt-0.5 text-sm font-medium">{item.value}</p>
+                        )}
                     </div>
                 </div>
             ))}

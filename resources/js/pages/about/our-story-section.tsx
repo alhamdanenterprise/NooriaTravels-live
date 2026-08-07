@@ -19,7 +19,13 @@ export default function OurStorySection() {
                 </div>
 
                 <div className="overflow-hidden rounded-2xl shadow-xl">
-                    <img src="/images/about-section.png" alt="Nooria Travels - guiding your journey" className="h-full w-full object-cover" />
+                    <img
+                        src="/images/about-section.png"
+                        alt="Nooria Travels - guiding your journey"
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover"
+                    />
                 </div>
             </div>
         </section>

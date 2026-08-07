@@ -7,7 +7,7 @@ const credentials = [
 
 export default function AboutHeroSection() {
     return (
-        <section className="relative flex min-h-[420px] items-center overflow-hidden bg-white sm:min-h-[520px]">
+        <section className="relative flex min-h-[460px] items-center overflow-hidden bg-white sm:min-h-[560px]">
             <img
                 src="/images/about/banner.png"
                 alt=""
@@ -15,7 +15,7 @@ export default function AboutHeroSection() {
             />
             {/* Fades to #fefefe (the About page's bg-linen sections below) rather than pure
                 white, so the hero meets the next section without a visible seam. */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent from-40% via-[#fefefe]/70 via-75% to-[#fefefe]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% via-[#fefefe]/70 via-85% to-[#fefefe]" />
 
             <div className="relative mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-8">
                 <p data-aos="fade-up" className="text-brand-gold text-sm font-semibold tracking-wide uppercase">

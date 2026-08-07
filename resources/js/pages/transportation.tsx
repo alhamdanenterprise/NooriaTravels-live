@@ -1,3 +1,4 @@
+import { seoTags } from '@/components/seo-tags';
 import SiteLayout from '@/layouts/site-layout';
 import TransportationCtaSection from '@/pages/transportation/cta-section';
 import TransportationHeroSection from '@/pages/transportation/hero-section';
@@ -10,7 +11,15 @@ export default function Transportation() {
 
     return (
         <SiteLayout siteSettings={siteSettings}>
-            <Head title="Transportation" />
+            <Head title="Umrah Transportation | Airport Transfers in Saudi Arabia">
+                {seoTags({
+                    title: 'Umrah Transportation | Airport Transfers in Saudi Arabia',
+                    description:
+                        'Reliable Umrah transportation across Saudi Arabia — airport pickups, Makkah & Madinah transfers, professional drivers, 24/7 support.',
+                    path: '/transportation',
+                    image: '/images/transport/banner.png',
+                })}
+            </Head>
 
             <TransportationHeroSection />
             <TransportationVehicleOptionsSection />

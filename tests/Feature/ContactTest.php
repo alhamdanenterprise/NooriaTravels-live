@@ -180,6 +180,23 @@ it('escapes markdown syntax in submitted text before it reaches the email body',
     });
 });
 
+it('fails gracefully and flashes an error when the email fails to send', function () {
+    Mail::shouldReceive('to->send')->once()->andThrow(new Exception('Connection could not be established with host.'));
+
+    $response = $this->post('/contact', [
+        'name' => 'Ahmed Khan',
+        'email' => 'ahmed@example.com',
+        'phone' => '966501234567',
+        'subject' => 'Umrah Packages',
+        'message' => 'I would like to know more about your Umrah packages.',
+    ]);
+
+    $response->assertRedirect();
+    $response->assertSessionHas('error');
+    $response->assertSessionMissing('success');
+    $response->assertSessionHasInput('name', 'Ahmed Khan');
+});
+
 it('rate limits repeated contact form submissions', function () {
     Mail::fake();
 

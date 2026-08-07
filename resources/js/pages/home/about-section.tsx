@@ -3,7 +3,7 @@ import { RiArrowRightLine } from '@remixicon/react';
 
 export default function AboutSection() {
     return (
-        <section data-aos="fade-up" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <section data-aos="fade-up" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2">
                 <div>
                     <p className="text-brand-gold text-sm font-semibold tracking-wide uppercase">Who We Are</p>
@@ -30,7 +30,13 @@ export default function AboutSection() {
                 </div>
 
                 <div className="overflow-hidden rounded-2xl shadow-xl">
-                    <img src="/images/about-section.png" alt="Nooria Travels - guiding your journey" className="h-full w-full object-cover" />
+                    <img
+                        src="/images/about-section.png"
+                        alt="Nooria Travels - guiding your journey"
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover"
+                    />
                 </div>
             </div>
         </section>

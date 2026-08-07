@@ -37,6 +37,8 @@ export default function ChairmanMessageSection() {
                             <img
                                 src={leader.image}
                                 alt={leader.name}
+                                loading="lazy"
+                                decoding="async"
                                 className="ring-brand-gold/40 mx-auto h-20 w-20 rounded-full object-cover ring-4"
                             />
 

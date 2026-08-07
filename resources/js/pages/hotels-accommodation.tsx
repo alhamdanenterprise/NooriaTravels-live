@@ -1,10 +1,11 @@
+import { seoTags } from '@/components/seo-tags';
+import SiteLayout from '@/layouts/site-layout';
 import CategoryTabs, { ALL_CATEGORY, categories } from '@/pages/hotels-accommodation/category-tabs';
 import HotelsCtaSection from '@/pages/hotels-accommodation/cta-section';
 import HotelsHeroSection from '@/pages/hotels-accommodation/hero-section';
 import HotelCard from '@/pages/hotels-accommodation/hotel-card';
 import HotelPopup from '@/pages/hotels-accommodation/hotel-popup';
 import { type Hotel } from '@/pages/hotels-accommodation/types';
-import SiteLayout from '@/layouts/site-layout';
 import { type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
 import { RiArrowDownSLine } from '@remixicon/react';
@@ -31,7 +32,15 @@ export default function HotelsAccommodation({ hotels }: { hotels: Hotel[] }) {
 
     return (
         <SiteLayout siteSettings={siteSettings}>
-            <Head title="Hotels & Accommodation" />
+            <Head title="Hotels Near Haram | Makkah & Madinah Accommodation">
+                {seoTags({
+                    title: 'Hotels Near Haram | Makkah & Madinah Accommodation',
+                    description:
+                        'Book verified hotels minutes from Masjid al-Haram in Makkah and Madinah — real Google ratings, transparent details, easy WhatsApp booking.',
+                    path: '/hotels-accommodation',
+                    image: '/images/hotels/banner.png',
+                })}
+            </Head>
 
             <HotelsHeroSection />
 

@@ -1,3 +1,4 @@
+import { seoTags } from '@/components/seo-tags';
 import SiteLayout from '@/layouts/site-layout';
 import ServicesSection from '@/pages/home/services-section';
 import ServicesHeroSection from '@/pages/services/hero-section';
@@ -9,7 +10,15 @@ export default function Services() {
 
     return (
         <SiteLayout siteSettings={siteSettings}>
-            <Head title="Our Services" />
+            <Head title="Our Services | Umrah, Visas, Flights, Hotels & Tours">
+                {seoTags({
+                    title: 'Our Services | Umrah, Visas, Flights, Hotels & Tours',
+                    description:
+                        "Explore Nooria Travels' complete range of services — Umrah packages, Saudi visit visas, air ticketing, hotel bookings, transportation & tours.",
+                    path: '/services',
+                    image: '/images/services-page.png',
+                })}
+            </Head>
 
             <ServicesHeroSection />
             <ServicesSection />

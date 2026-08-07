@@ -79,6 +79,8 @@ export default function TransportationVehicleOptionsSection() {
                             <img
                                 src={vehicle.image}
                                 alt={vehicle.name}
+                                loading="lazy"
+                                decoding="async"
                                 className="h-full w-full object-contain p-3 transition-transform duration-500 group-hover:scale-105"
                             />
                             <span className="bg-brand-gold absolute top-3 left-3 rounded-md px-2.5 py-1 text-xs font-semibold text-white">

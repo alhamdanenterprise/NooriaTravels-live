@@ -1,3 +1,4 @@
+import { seoTags } from '@/components/seo-tags';
 import SiteLayout from '@/layouts/site-layout';
 import ChairmanMessageSection from '@/pages/about/chairman-message-section';
 import AboutCtaBanner from '@/pages/about/cta-banner';
@@ -14,7 +15,15 @@ export default function About() {
 
     return (
         <SiteLayout siteSettings={siteSettings}>
-            <Head title="About Us" />
+            <Head title="About Us | Our Story & Mission">
+                {seoTags({
+                    title: 'About Us | Our Story & Mission',
+                    description:
+                        "Discover Nooria Travels' story, leadership, and mission to deliver safe, comfortable Umrah journeys and travel services with honesty and care.",
+                    path: '/about',
+                    image: '/images/about/banner.png',
+                })}
+            </Head>
 
             <AboutHeroSection />
             <OurStorySection />

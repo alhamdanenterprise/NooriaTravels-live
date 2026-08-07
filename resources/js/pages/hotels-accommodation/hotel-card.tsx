@@ -9,7 +9,7 @@ export default function HotelCard({ hotel, onViewDetails }: { hotel: Hotel; onVi
         <div className="group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
             <div className="from-brand-navy to-brand-blue relative flex h-40 shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br">
                 {hotel.image ? (
-                    <img src={hotel.image} alt={hotel.name} className="h-full w-full object-cover" />
+                    <img src={hotel.image} alt={hotel.name} loading="lazy" decoding="async" className="h-full w-full object-cover" />
                 ) : (
                     <Building2 className="h-14 w-14 text-white/30 transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
                 )}

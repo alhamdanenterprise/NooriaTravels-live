@@ -1,6 +1,6 @@
 import { RiArrowLeftSLine, RiArrowRightSLine } from '@remixicon/react';
 import { Quote, Star } from 'lucide-react';
-import { useRef } from 'react';
+import { useState } from 'react';
 
 const testimonials = [
     {
@@ -41,11 +41,10 @@ const testimonials = [
 ];
 
 export default function TravelersVoicesSection() {
-    const trackRef = useRef<HTMLDivElement>(null);
+    const [activeIndex, setActiveIndex] = useState(0);
 
-    const scroll = (direction: 'left' | 'right') => {
-        trackRef.current?.scrollBy({ left: direction === 'left' ? -340 : 340, behavior: 'smooth' });
-    };
+    const showPrevious = () => setActiveIndex((index) => (index - 1 + testimonials.length) % testimonials.length);
+    const showNext = () => setActiveIndex((index) => (index + 1) % testimonials.length);
 
     return (
         <section data-aos="fade-up" className="bg-linen py-14">
@@ -55,50 +54,67 @@ export default function TravelersVoicesSection() {
                     <div className="bg-brand-gold mt-3 h-1 w-16 rounded-full" />
                 </div>
 
-                <div className="relative mt-12">
-                    <div ref={trackRef} className="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4">
-                        {testimonials.map((testimonial) => (
-                            <div
-                                key={testimonial.name}
-                                className="w-[300px] shrink-0 snap-start rounded-2xl border border-gray-100 bg-white/80 p-6 shadow-md backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                            >
-                                <Quote className="text-brand-gold/40 h-7 w-7" />
-                                <p className="mt-3 text-sm text-gray-600">"{testimonial.review}"</p>
-                                <div className="mt-4 flex items-center gap-1">
-                                    {Array.from({ length: testimonial.rating }).map((_, starIndex) => (
-                                        <Star key={starIndex} className="fill-brand-gold text-brand-gold h-4 w-4" />
-                                    ))}
-                                </div>
-                                <div className="mt-4 flex items-center gap-3">
-                                    <span className="bg-brand-navy flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white">
-                                        {testimonial.initials}
-                                    </span>
-                                    <div>
-                                        <p className="text-brand-navy text-sm font-semibold">{testimonial.name}</p>
-                                        <p className="text-xs text-gray-500">{testimonial.location}</p>
+                <div className="relative mx-auto mt-12 max-w-xl">
+                    <div className="overflow-hidden">
+                        <div
+                            className="flex transition-transform duration-500 ease-out"
+                            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+                        >
+                            {testimonials.map((testimonial) => (
+                                <div key={testimonial.name} className="w-full shrink-0 px-1">
+                                    <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 shadow-md backdrop-blur-sm sm:p-8">
+                                        <Quote className="text-brand-gold/40 h-8 w-8" />
+                                        <p className="mt-3 text-sm text-gray-600 sm:text-base">"{testimonial.review}"</p>
+                                        <div className="mt-4 flex items-center gap-1">
+                                            {Array.from({ length: testimonial.rating }).map((_, starIndex) => (
+                                                <Star key={starIndex} className="fill-brand-gold text-brand-gold h-4 w-4" />
+                                            ))}
+                                        </div>
+                                        <div className="mt-4 flex items-center gap-3">
+                                            <span className="bg-brand-navy flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white">
+                                                {testimonial.initials}
+                                            </span>
+                                            <div>
+                                                <p className="text-brand-navy text-sm font-semibold">{testimonial.name}</p>
+                                                <p className="text-xs text-gray-500">{testimonial.location}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
 
-                    <div className="mt-6 flex items-center justify-center gap-3">
-                        <button
-                            type="button"
-                            onClick={() => scroll('left')}
-                            aria-label="Previous testimonials"
-                            className="border-brand-navy/15 text-brand-navy hover:bg-brand-navy flex h-10 w-10 items-center justify-center rounded-full border transition duration-200 hover:scale-110 hover:text-white"
-                        >
-                            <RiArrowLeftSLine className="h-5 w-5" />
-                        </button>
-                        <button
-                            type="button"
-                            onClick={() => scroll('right')}
-                            aria-label="Next testimonials"
-                            className="border-brand-navy/15 text-brand-navy hover:bg-brand-navy flex h-10 w-10 items-center justify-center rounded-full border transition duration-200 hover:scale-110 hover:text-white"
-                        >
-                            <RiArrowRightSLine className="h-5 w-5" />
-                        </button>
+                    <button
+                        type="button"
+                        onClick={showPrevious}
+                        aria-label="Previous review"
+                        className="border-brand-navy/15 text-brand-navy hover:bg-brand-navy absolute top-1/2 left-0 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-white shadow-sm transition duration-200 hover:scale-110 hover:text-white sm:-left-5"
+                    >
+                        <RiArrowLeftSLine className="h-5 w-5" />
+                    </button>
+                    <button
+                        type="button"
+                        onClick={showNext}
+                        aria-label="Next review"
+                        className="border-brand-navy/15 text-brand-navy hover:bg-brand-navy absolute top-1/2 right-0 flex h-10 w-10 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full border bg-white shadow-sm transition duration-200 hover:scale-110 hover:text-white sm:-right-5"
+                    >
+                        <RiArrowRightSLine className="h-5 w-5" />
+                    </button>
+
+                    <div className="mt-6 flex items-center justify-center gap-2">
+                        {testimonials.map((testimonial, index) => (
+                            <button
+                                key={testimonial.name}
+                                type="button"
+                                onClick={() => setActiveIndex(index)}
+                                aria-label={`Go to review ${index + 1} of ${testimonials.length}`}
+                                aria-current={index === activeIndex}
+                                className={`h-2 rounded-full transition-all duration-300 ${
+                                    index === activeIndex ? 'bg-brand-navy w-6' : 'w-2 bg-gray-300 hover:bg-gray-400'
+                                }`}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

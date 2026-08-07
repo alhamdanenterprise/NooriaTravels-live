@@ -82,15 +82,21 @@ export default function SiteFooter({ siteSettings }: { siteSettings: SiteSetting
                         <ul className="space-y-3 text-sm text-white/80">
                             <li className="flex items-start gap-2">
                                 <Phone className="mt-0.5 h-4 w-4 shrink-0" />
-                                {siteSettings.phone}
+                                <a href={`tel:${siteSettings.phone.replace(/\s+/g, '')}`} className="hover:text-brand-gold">
+                                    {siteSettings.phone}
+                                </a>
                             </li>
                             <li className="flex items-start gap-2">
                                 <Phone className="mt-0.5 h-4 w-4 shrink-0" />
-                                {siteSettings.phoneAlt}
+                                <a href={`tel:${siteSettings.phoneAlt.replace(/\s+/g, '')}`} className="hover:text-brand-gold">
+                                    {siteSettings.phoneAlt}
+                                </a>
                             </li>
                             <li className="flex items-start gap-2">
                                 <Mail className="mt-0.5 h-4 w-4 shrink-0" />
-                                {siteSettings.email}
+                                <a href={`mailto:${siteSettings.email}`} className="hover:text-brand-gold">
+                                    {siteSettings.email}
+                                </a>
                             </li>
                             <li className="flex items-start gap-2">
                                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />

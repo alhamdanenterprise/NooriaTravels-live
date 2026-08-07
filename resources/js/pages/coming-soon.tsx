@@ -1,3 +1,4 @@
+import { seoTags } from '@/components/seo-tags';
 import SiteLayout from '@/layouts/site-layout';
 import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
@@ -6,6 +7,7 @@ import { ArrowLeft, Rocket } from 'lucide-react';
 interface ComingSoonService {
     name: string;
     tagline: string;
+    path: string;
 }
 
 export default function ComingSoon({ service }: { service: ComingSoonService }) {
@@ -13,7 +15,7 @@ export default function ComingSoon({ service }: { service: ComingSoonService }) 
 
     return (
         <SiteLayout siteSettings={siteSettings}>
-            <Head title={service.name} />
+            <Head title={service.name}>{seoTags({ title: service.name, description: service.tagline, path: service.path })}</Head>
 
             <section className="mx-auto max-w-3xl px-4 pt-10 pb-20 text-center sm:px-6 sm:pt-14 sm:pb-28 lg:px-8">
                 <span className="bg-brand-navy/5 mx-auto flex h-16 w-16 items-center justify-center rounded-full">
@@ -26,8 +28,8 @@ export default function ComingSoon({ service }: { service: ComingSoonService }) 
 
                 <h2 className="text-brand-navy mt-8 text-2xl font-bold sm:text-3xl">We're Getting This Ready</h2>
                 <p className="mt-4 text-base leading-relaxed text-gray-600">
-                    {service.name} isn't available to book on our website just yet, but it's on the way. In the meantime, our team is happy to
-                    help you directly &mdash; reach out on WhatsApp and we'll take care of the rest.
+                    {service.name} isn't available to book on our website just yet, but it's on the way. In the meantime, our team is happy to help
+                    you directly &mdash; reach out on WhatsApp and we'll take care of the rest.
                 </p>
 
                 <div className="mt-8 flex justify-center">

@@ -38,9 +38,21 @@ export default function SiteNavbar({ siteSettings }: { siteSettings: SiteSetting
                         {navLinks[0].label}
                     </Link>
 
-                    <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
+                    <div
+                        className="relative"
+                        onMouseEnter={() => setServicesOpen(true)}
+                        onMouseLeave={() => setServicesOpen(false)}
+                        onFocus={() => setServicesOpen(true)}
+                        onBlur={(e) => {
+                            if (!e.currentTarget.contains(e.relatedTarget)) {
+                                setServicesOpen(false);
+                            }
+                        }}
+                    >
                         <Link
                             href="/services"
+                            aria-haspopup="true"
+                            aria-expanded={servicesOpen}
                             className="hover:text-brand-gold flex items-center gap-1 rounded-md px-4 py-2 text-sm font-medium text-white transition-colors"
                         >
                             Services
@@ -86,6 +98,7 @@ export default function SiteNavbar({ siteSettings }: { siteSettings: SiteSetting
                     onClick={() => setMobileOpen((open) => !open)}
                     className="hover:text-brand-gold text-white transition-colors lg:hidden"
                     aria-label="Toggle navigation menu"
+                    aria-expanded={mobileOpen}
                 >
                     {mobileOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
                 </button>

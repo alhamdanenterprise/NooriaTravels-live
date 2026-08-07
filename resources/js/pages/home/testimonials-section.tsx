@@ -3,7 +3,7 @@ import { Quote, Star } from 'lucide-react';
 
 export default function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) {
     return (
-        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
             <div data-aos="fade-up" className="mx-auto max-w-2xl text-center">
                 <h2 className="text-brand-navy text-3xl font-bold">What Our Travelers Say</h2>
                 <div className="bg-brand-gold mx-auto mt-3 h-1 w-16 rounded-full" />

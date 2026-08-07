@@ -1,3 +1,4 @@
+import { seoTags } from '@/components/seo-tags';
 import SiteLayout from '@/layouts/site-layout';
 import AboutSection from '@/pages/home/about-section';
 import CtaSection from '@/pages/home/cta-section';
@@ -17,7 +18,15 @@ export default function Home({ umrahPackages, testimonials }: { umrahPackages: U
 
     return (
         <SiteLayout siteSettings={siteSettings}>
-            <Head title="Home" />
+            <Head title="Umrah Packages, Visas, Flights & Hotels">
+                {seoTags({
+                    title: 'Umrah Packages, Visas, Flights & Hotels',
+                    description:
+                        'Nooria Travels: trusted Umrah packages, Saudi visit visas, air tickets, hotels near Haram & transportation for pilgrims from Pakistan and the UK.',
+                    path: '/',
+                    image: '/images/hero.jpg',
+                })}
+            </Head>
 
             <HeroSection />
             <AboutSection />
@@ -25,7 +34,7 @@ export default function Home({ umrahPackages, testimonials }: { umrahPackages: U
             <ServicesSection />
             <FeaturedPackagesSection packages={umrahPackages} siteSettings={siteSettings} />
 
-            <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+            <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
                 <WhyChooseSection />
             </section>
 

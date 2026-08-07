@@ -42,7 +42,7 @@ const services: { title: string; description: string; href: string; image: strin
 
 export default function ServicesSection() {
     return (
-        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
             <div data-aos="fade-up" className="mx-auto max-w-2xl text-center">
                 <h2 className="text-brand-navy text-3xl font-bold">Our Services</h2>
                 <div className="bg-brand-gold mx-auto mt-3 h-1 w-16 rounded-full" />
@@ -58,6 +58,8 @@ export default function ServicesSection() {
                             <img
                                 src={service.image}
                                 alt={service.title}
+                                loading="lazy"
+                                decoding="async"
                                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                         </div>

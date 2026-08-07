@@ -14,7 +14,7 @@ export default function FeaturedPackagesSection({ packages, siteSettings }: { pa
     }
 
     return (
-        <section className="bg-gray-50 py-20">
+        <section className="bg-gray-50 py-14">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div data-aos="fade-up" className="mx-auto max-w-2xl text-center">
                     <h2 className="text-brand-navy text-3xl font-bold">Featured Umrah Packages</h2>
