@@ -17,7 +17,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=cormorant-garamond:600,700|montserrat:400,500,600,700" rel="stylesheet" />
 
-        <script type="application/ld+json">
+        <script type="application/ld+json" nonce="{{ $cspNonce }}">
             @verbatim
             {
                 "@context": "https://schema.org",
@@ -50,7 +50,7 @@
             @endverbatim
         </script>
 
-        @routes
+        @routes(null, $cspNonce)
         @viteReactRefresh
         @vite(['resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
         @inertiaHead
