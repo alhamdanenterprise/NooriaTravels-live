@@ -16,7 +16,7 @@ export default function Contact() {
                     description:
                         'Get in touch with Nooria Travels for Umrah packages, Saudi visas, flights & hotel bookings — call, WhatsApp, or send us a message today.',
                     path: '/contact',
-                    image: '/images/hero.jpg',
+                    image: '/images/hero.webp',
                 })}
             </Head>
 

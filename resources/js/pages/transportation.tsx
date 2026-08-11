@@ -17,7 +17,7 @@ export default function Transportation() {
                     description:
                         'Reliable Umrah transportation across Saudi Arabia — airport pickups, Makkah & Madinah transfers, professional drivers, 24/7 support.',
                     path: '/transportation',
-                    image: '/images/transport/banner.png',
+                    image: '/images/transport/banner.webp',
                 })}
             </Head>
 

@@ -38,7 +38,7 @@ export default function HotelsAccommodation({ hotels }: { hotels: Hotel[] }) {
                     description:
                         'Book verified hotels minutes from Masjid al-Haram in Makkah and Madinah — real Google ratings, transparent details, easy WhatsApp booking.',
                     path: '/hotels-accommodation',
-                    image: '/images/hotels/banner.png',
+                    image: '/images/hotels/banner.webp',
                 })}
             </Head>
 

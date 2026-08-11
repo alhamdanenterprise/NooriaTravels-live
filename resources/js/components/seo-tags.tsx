@@ -19,7 +19,7 @@ interface SeoTagsProps {
  * e.g. `<Head title="...">{seoTags({...})}</Head>`. A component used as `<SeoTags .../>` (or a
  * Fragment) would silently produce nothing, since Head never resolves that nested element tree.
  */
-export function seoTags({ title, description, path, image = '/images/hero.jpg' }: SeoTagsProps) {
+export function seoTags({ title, description, path, image = '/images/hero.webp' }: SeoTagsProps) {
     const url = absoluteUrl(path);
     const imageUrl = absoluteUrl(image);
     const fullTitle = `${title} - Nooria Travels`;

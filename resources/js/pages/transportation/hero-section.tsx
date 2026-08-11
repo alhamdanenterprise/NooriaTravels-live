@@ -11,7 +11,7 @@ export default function TransportationHeroSection() {
     return (
         <section className="relative flex min-h-[520px] items-center overflow-hidden bg-white sm:min-h-[620px]">
             <img
-                src="/images/transport/banner.png"
+                src="/images/transport/banner.webp"
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover object-[center_20%] opacity-95"
             />

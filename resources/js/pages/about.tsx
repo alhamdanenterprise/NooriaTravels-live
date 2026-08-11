@@ -21,7 +21,7 @@ export default function About() {
                     description:
                         "Discover Nooria Travels' story, leadership, and mission to deliver safe, comfortable Umrah journeys and travel services with honesty and care.",
                     path: '/about',
-                    image: '/images/about/banner.png',
+                    image: '/images/about/banner.webp',
                 })}
             </Head>
 

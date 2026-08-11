@@ -20,7 +20,7 @@ export default function HeroSection() {
     return (
         <section ref={scope} className="relative flex h-[calc(100dvh-64px+120px)] w-full items-center overflow-hidden bg-[#010824]">
             <img
-                src="/images/hero.jpg"
+                src="/images/hero.webp"
                 alt=""
                 fetchPriority="high"
                 decoding="async"

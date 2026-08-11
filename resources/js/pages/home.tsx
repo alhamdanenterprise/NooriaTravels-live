@@ -24,7 +24,7 @@ export default function Home({ umrahPackages, testimonials }: { umrahPackages: U
                     description:
                         'Nooria Travels: trusted Umrah packages, Saudi visit visas, air tickets, hotels near Haram & transportation for pilgrims from Pakistan and the UK.',
                     path: '/',
-                    image: '/images/hero.jpg',
+                    image: '/images/hero.webp',
                 })}
             </Head>
 

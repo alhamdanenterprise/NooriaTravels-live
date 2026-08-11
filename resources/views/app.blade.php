@@ -26,7 +26,7 @@
                 "name": "Nooria Travels",
                 "url": "https://nooriatravels.com",
                 "logo": "https://nooriatravels.com/images/logo.png",
-                "image": "https://nooriatravels.com/images/hero.jpg",
+                "image": "https://nooriatravels.com/images/hero.webp",
                 "description": "Nooria Travels is a trusted travel agency offering Umrah packages, visit visas, air tickets, hotels, and transportation across Saudi Arabia.",
                 "telephone": ["+92-336-5099416", "+44-7756-980031"],
                 "email": "nooriatraveltours@gmail.com",

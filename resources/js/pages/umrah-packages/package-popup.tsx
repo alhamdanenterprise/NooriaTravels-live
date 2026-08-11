@@ -76,7 +76,7 @@ export default function PackagePopup({
                             </DialogPrimitive.Close>
 
                             <img
-                                src="/images/packages/top.png"
+                                src="/images/packages/top.webp"
                                 alt=""
                                 className="pointer-events-none absolute top-1/2 right-8 h-28 w-auto -translate-y-1/2 object-contain opacity-90 sm:h-40"
                             />

@@ -6,37 +6,37 @@ const services: { title: string; description: string; href: string; image: strin
         title: 'Umrah Packages',
         description: 'Comfortable Umrah packages with the best services and support.',
         href: '/umrah-packages',
-        image: '/images/services/umrah-packages.jpg',
+        image: '/images/services/umrah-packages.webp',
     },
     {
         title: 'Visit Visa',
         description: 'Fast and reliable visit visa services for Saudi Arabia.',
         href: '/visit-visa',
-        image: '/images/services/visit-visa.jpg',
+        image: '/images/services/visit-visa.webp',
     },
     {
         title: 'Air Ticketing',
         description: 'Domestic and international air tickets at the best prices.',
         href: '/air-ticketing',
-        image: '/images/services/air-ticketing.jpg',
+        image: '/images/services/air-ticketing.webp',
     },
     {
         title: 'Transportation',
         description: 'Comfortable and safe transportation for your journey.',
         href: '/transportation',
-        image: '/images/services/transportation.jpg',
+        image: '/images/services/transportation.webp',
     },
     {
         title: 'Hotels & Accommodation',
         description: 'Quality hotels in Makkah, Madina and beyond to suit your budget.',
         href: '/hotels-accommodation',
-        image: '/images/services/hotels-accommodation.jpg',
+        image: '/images/services/hotels-accommodation.webp',
     },
     {
         title: 'Tour Packages',
         description: 'Explore the beauty of Saudi Arabia with our tour packages.',
         href: '/tours',
-        image: '/images/services/tour-packages.jpg',
+        image: '/images/services/tour-packages.webp',
     },
 ];
 

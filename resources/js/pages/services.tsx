@@ -16,7 +16,7 @@ export default function Services() {
                     description:
                         "Explore Nooria Travels' complete range of services — Umrah packages, Saudi visit visas, air ticketing, hotel bookings, transportation & tours.",
                     path: '/services',
-                    image: '/images/services-page.png',
+                    image: '/images/services-page.webp',
                 })}
             </Head>
 

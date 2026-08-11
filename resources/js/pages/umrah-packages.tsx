@@ -27,7 +27,7 @@ export default function UmrahPackages({ packages }: { packages: UmrahPackage[] }
                     description:
                         'Affordable Umrah packages with Makkah & Madinah hotel stays, visa, flights & transport included. Compare packages and book your pilgrimage today.',
                     path: '/umrah-packages',
-                    image: '/images/packages/banner.png',
+                    image: '/images/packages/banner.webp',
                 })}
             </Head>
 

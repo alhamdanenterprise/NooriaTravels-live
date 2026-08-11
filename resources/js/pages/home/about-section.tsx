@@ -31,7 +31,7 @@ export default function AboutSection() {
 
                 <div className="overflow-hidden rounded-2xl shadow-xl">
                     <img
-                        src="/images/about-section.png"
+                        src="/images/about-section.webp"
                         alt="Nooria Travels - guiding your journey"
                         loading="lazy"
                         decoding="async"
