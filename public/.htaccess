@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # Redirect www to non-www (avoids duplicate-content/split SEO signal between the two hosts)
+    RewriteCond %{HTTP_HOST} ^www\.nooriatravels\.com$ [NC]
+    RewriteRule ^ https://nooriatravels.com%{REQUEST_URI} [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
