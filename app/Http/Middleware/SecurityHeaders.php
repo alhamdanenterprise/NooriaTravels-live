@@ -44,6 +44,9 @@ class SecurityHeaders
                 // google-analytics.com/analytics.google.com hosts are gtag.js's own hit
                 // endpoints (regional subdomains included), which nonces don't cover.
                 "connect-src 'self' https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com",
+                // GTM's <noscript> fallback loads an iframe from this host; frame-src is
+                // unset otherwise, which falls back to default-src 'self' and blocks it.
+                'frame-src https://www.googletagmanager.com',
                 "object-src 'none'",
                 "base-uri 'self'",
                 "frame-ancestors 'none'",
