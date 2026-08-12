@@ -18,7 +18,10 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section ref={scope} className="relative flex h-[calc(100dvh-64px+120px)] w-full items-center overflow-hidden bg-[#010824]">
+        <section
+            ref={scope}
+            className="relative flex min-h-[520px] w-full items-center overflow-hidden bg-[#010824] sm:h-[calc(100dvh-64px+120px)] sm:min-h-0"
+        >
             <img
                 src="/images/hero.webp"
                 alt=""

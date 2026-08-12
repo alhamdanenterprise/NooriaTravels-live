@@ -14,6 +14,7 @@
         <link rel="manifest" href="/site.webmanifest">
         <meta name="theme-color" content="#024194">
         <meta name="google-site-verification" content="J8IanLq9YeUaYkbTlONHwDj0c35P6R6NzdzpK5dcr0Q">
+        <meta name="google-site-verification" content="gHc0sEgPTOlsSEkSP-L0tC1BsCn_VRPJOG70YkAFxPA">
 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=cormorant-garamond:600,700|montserrat:400,500,600,700" rel="stylesheet" />

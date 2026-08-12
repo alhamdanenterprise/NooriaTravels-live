@@ -75,10 +75,14 @@ export default function PackagePopup({
                                 <span className="sr-only">Close</span>
                             </DialogPrimitive.Close>
 
+                            {/* Hidden below sm: at mobile card widths this decorative flourish forced long
+                                real titles (e.g. "15 Days / 14 Nights Flight-Inclusive Package") into a
+                                65%-width column and wrapped awkwardly. It only reappears once there's
+                                enough room to sit beside the text without squeezing it. */}
                             <img
                                 src="/images/packages/top.webp"
                                 alt=""
-                                className="pointer-events-none absolute top-1/2 right-8 h-28 w-auto -translate-y-1/2 object-contain opacity-90 sm:h-40"
+                                className="pointer-events-none absolute top-1/2 right-8 hidden h-28 w-auto -translate-y-1/2 object-contain opacity-90 sm:block sm:h-40"
                             />
 
                             <span className="bg-brand-navy relative z-10 inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold text-white uppercase">
@@ -86,17 +90,17 @@ export default function PackagePopup({
                                 {pkg.duration_label}
                             </span>
 
-                            <DialogPrimitive.Title className="text-brand-navy relative z-10 mt-3 max-w-[65%] text-2xl leading-tight font-bold sm:text-3xl">
+                            <DialogPrimitive.Title className="text-brand-navy relative z-10 mt-3 max-w-full text-2xl leading-tight font-bold sm:max-w-[65%] sm:text-3xl">
                                 {pkg.title}
                             </DialogPrimitive.Title>
 
-                            <p className="relative z-10 mt-2 max-w-[65%] text-sm text-gray-600 sm:text-base">
+                            <p className="relative z-10 mt-2 max-w-full text-sm text-gray-600 sm:max-w-[65%] sm:text-base">
                                 {pkg.makkah_nights} Nights <span className="text-brand-blue font-semibold">Makkah</span>
                                 {' | '}
                                 {pkg.madinah_nights} Nights <span className="font-semibold text-green-600">Madinah</span>
                             </p>
 
-                            <p className="relative z-10 mt-2 max-w-[70%] text-sm text-gray-500">{pkg.description}</p>
+                            <p className="relative z-10 mt-2 max-w-full text-sm text-gray-500 sm:max-w-[70%]">{pkg.description}</p>
                         </div>
 
                         {/* Body */}
