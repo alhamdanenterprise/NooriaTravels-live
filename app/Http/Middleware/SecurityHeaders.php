@@ -34,12 +34,16 @@ class SecurityHeaders
         if ($this->shouldSendContentSecurityPolicy()) {
             $response->headers->set('Content-Security-Policy', implode('; ', [
                 "default-src 'self'",
-                "script-src 'self' 'nonce-{$nonce}'",
+                // googletagmanager.com is also allowed by nonce alone, but listed explicitly
+                // per Google's own recommended CSP for gtag.js.
+                "script-src 'self' 'nonce-{$nonce}' https://www.googletagmanager.com",
                 "style-src 'self' 'unsafe-inline' https://fonts.bunny.net",
                 "font-src 'self' https://fonts.bunny.net",
-                "img-src 'self' data:",
-                // EmailJS is called directly from the browser by the contact form.
-                "connect-src 'self' https://api.emailjs.com",
+                "img-src 'self' data: https://www.google-analytics.com",
+                // EmailJS is called directly from the browser by the contact form; the
+                // google-analytics.com/analytics.google.com hosts are gtag.js's own hit
+                // endpoints (regional subdomains included), which nonces don't cover.
+                "connect-src 'self' https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com",
                 "object-src 'none'",
                 "base-uri 'self'",
                 "frame-ancestors 'none'",

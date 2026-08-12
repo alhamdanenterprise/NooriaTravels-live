@@ -4,6 +4,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Google tag (gtag.js) -->
+        <script nonce="{{ $cspNonce }}" async src="https://www.googletagmanager.com/gtag/js?id=G-65NDGX7ZZ2"></script>
+        <script nonce="{{ $cspNonce }}">
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-65NDGX7ZZ2');
+        </script>
+
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
