@@ -64,10 +64,18 @@ export default function PackagePopup({
             <DialogPrimitive.Portal>
                 <DialogPrimitive.Overlay className="animate-in fade-in-0 fixed inset-0 z-50 bg-black/70" />
                 <DialogPrimitive.Content
-                    className="animate-in fade-in-0 zoom-in-95 fixed inset-0 z-50 overflow-y-auto p-3 sm:p-6 lg:p-8"
+                    // overflow-x-hidden is explicit here (not left to fall through to the CSS
+                    // spec's visible->auto pairing rule) so any child that's ever too wide gets
+                    // clipped outright instead of becoming sideways-scrollable-but-undiscoverable
+                    // on a modal everyone expects to scroll only vertically.
+                    className="animate-in fade-in-0 zoom-in-95 fixed inset-0 z-50 overflow-x-hidden overflow-y-auto p-3 sm:p-6 lg:p-8"
                     aria-describedby={undefined}
                 >
-                    <div className="relative mx-auto w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+                    {/* min(100vw, 56rem) is a hard, ancestor-independent cap - CSS's min()
+                        picks whichever is smaller, so this always yields 56rem's original
+                        max-w-4xl look on wider screens but can never exceed the real screen
+                        width on mobile, even if something upstream ever miscomputes "100%". */}
+                    <div className="relative mx-auto w-full max-w-[min(100vw,56rem)] overflow-hidden rounded-2xl bg-white shadow-2xl">
                         {/* Header */}
                         <div className="relative overflow-hidden px-5 pt-5 sm:px-8 sm:pt-8">
                             <DialogPrimitive.Close className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200">

@@ -39,10 +39,18 @@ export default function HotelPopup({ hotel, siteSettings, onClose }: { hotel: Ho
             <DialogPrimitive.Portal>
                 <DialogPrimitive.Overlay className="animate-in fade-in-0 fixed inset-0 z-50 bg-black/70" />
                 <DialogPrimitive.Content
-                    className="animate-in fade-in-0 zoom-in-95 fixed inset-0 z-50 overflow-y-auto p-3 sm:p-6 lg:p-8"
+                    // overflow-x-hidden is explicit here (not left to fall through to the CSS
+                    // spec's visible->auto pairing rule) so any child that's ever too wide gets
+                    // clipped outright instead of becoming sideways-scrollable-but-undiscoverable
+                    // on a modal everyone expects to scroll only vertically.
+                    className="animate-in fade-in-0 zoom-in-95 fixed inset-0 z-50 overflow-x-hidden overflow-y-auto p-3 sm:p-6 lg:p-8"
                     aria-describedby={undefined}
                 >
-                    <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+                    {/* min(100vw, 48rem) is a hard, ancestor-independent cap - CSS's min()
+                        picks whichever is smaller, so this always yields 48rem's original
+                        max-w-3xl look on wider screens but can never exceed the real screen
+                        width on mobile, even if something upstream ever miscomputes "100%". */}
+                    <div className="relative mx-auto w-full max-w-[min(100vw,48rem)] overflow-hidden rounded-2xl bg-white shadow-2xl">
                         {/* Header */}
                         <div className="from-brand-navy to-brand-blue relative overflow-hidden bg-gradient-to-br px-4 py-5 sm:px-7 sm:py-6">
                             <DialogPrimitive.Close className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-700 transition hover:bg-white sm:top-4 sm:right-4">
