@@ -175,9 +175,16 @@
       as a black gap on the right edge, and `pointer-events: none` blocks the page from being scrolled
       by mouse wheel while the menu is open. Neutralize all three — Radix's own popper positioning
       already keeps open menus tracking their trigger if the page scrolls.
+
+      IMPORTANT: only override overflow-y here, not the `overflow` shorthand. The shorthand resets
+      BOTH axes to visible, which on real mobile browsers let full-screen Dialogs (hotel/package
+      popups) render wider than the viewport — nothing was left clipping horizontal overflow while
+      the dialog was open, since this rule's `!important` beat html's `overflow-x: clip`. The sticky
+      navbar only cares about the vertical scroll container, so scoping this to overflow-y fixes that
+      bug without also disabling horizontal clipping.
     */
     html body[data-scroll-locked] {
-        overflow: visible !important;
+        overflow-y: visible !important;
         pointer-events: auto !important;
         margin: 0 !important;
         padding: 0 !important;
