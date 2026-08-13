@@ -1,7 +1,7 @@
 import { seoTags } from '@/components/seo-tags';
 import SiteLayout from '@/layouts/site-layout';
-import PrivacyPolicyHeroSection from '@/pages/privacy-policy/hero-section';
 import PolicyContent from '@/pages/privacy-policy/policy-content';
+import PrivacyPolicyPageHeading from '@/pages/privacy-policy/page-heading';
 import { type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
 
@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
                 })}
             </Head>
 
-            <PrivacyPolicyHeroSection />
+            <PrivacyPolicyPageHeading />
             <PolicyContent siteSettings={siteSettings} />
         </SiteLayout>
     );

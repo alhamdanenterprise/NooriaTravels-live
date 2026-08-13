@@ -44,8 +44,8 @@ export default function HotelPopup({ hotel, siteSettings, onClose }: { hotel: Ho
                 >
                     <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-2xl bg-white shadow-2xl">
                         {/* Header */}
-                        <div className="from-brand-navy to-brand-blue relative overflow-hidden bg-gradient-to-br px-5 py-5 sm:px-7 sm:py-6">
-                            <DialogPrimitive.Close className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-gray-700 transition hover:bg-white">
+                        <div className="from-brand-navy to-brand-blue relative overflow-hidden bg-gradient-to-br px-4 py-5 sm:px-7 sm:py-6">
+                            <DialogPrimitive.Close className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-700 transition hover:bg-white sm:top-4 sm:right-4">
                                 <X className="h-4 w-4" />
                                 <span className="sr-only">Close</span>
                             </DialogPrimitive.Close>
@@ -54,7 +54,9 @@ export default function HotelPopup({ hotel, siteSettings, onClose }: { hotel: Ho
                                 {hotel.city}
                             </span>
 
-                            <DialogPrimitive.Title className="mt-2 pr-10 text-xl leading-tight font-bold text-white sm:text-2xl">
+                            {/* pr-12 keeps long hotel names clear of the close button, which sits
+                                slightly larger and closer to the corner on mobile. */}
+                            <DialogPrimitive.Title className="mt-2 pr-12 text-xl leading-tight font-bold text-white sm:pr-14 sm:text-2xl">
                                 {hotel.name}
                             </DialogPrimitive.Title>
 

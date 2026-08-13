@@ -109,21 +109,29 @@ export default function SiteNavbar({ siteSettings }: { siteSettings: SiteSetting
                     <Link href={navLinks[0].href} className="hover:text-brand-gold block rounded-md px-2 py-2.5 text-sm font-medium text-white">
                         {navLinks[0].label}
                     </Link>
-                    <Link
-                        href="/services"
-                        className="hover:text-brand-gold mt-2 block px-2 text-xs font-semibold tracking-wider text-white/60 uppercase"
-                    >
-                        Services
-                    </Link>
-                    {servicesMenu.map((item) => (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            className="hover:text-brand-gold block rounded-md px-2 py-2.5 text-sm font-medium text-white/90 transition-all hover:translate-x-1"
-                        >
-                            {item.label}
-                        </Link>
-                    ))}
+                    <details className="group">
+                        <summary className="hover:text-brand-gold mt-1 flex cursor-pointer list-none items-center justify-between rounded-md px-2 py-2.5 text-sm font-medium text-white marker:content-none">
+                            Services
+                            <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+                        </summary>
+                        <div className="space-y-0.5 pb-1 pl-2">
+                            <Link
+                                href="/services"
+                                className="hover:text-brand-gold block rounded-md px-2 py-2 text-sm font-semibold text-white/90 transition-all hover:translate-x-1"
+                            >
+                                View All Services
+                            </Link>
+                            {servicesMenu.map((item) => (
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    className="hover:text-brand-gold block rounded-md px-2 py-2 text-sm text-white/80 transition-all hover:translate-x-1"
+                                >
+                                    {item.label}
+                                </Link>
+                            ))}
+                        </div>
+                    </details>
                     {navLinks.slice(1).map((item) => (
                         <Link
                             key={item.href}
