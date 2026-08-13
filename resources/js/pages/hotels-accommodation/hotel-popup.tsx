@@ -174,9 +174,16 @@ export default function HotelPopup({ hotel, siteSettings, onClose }: { hotel: Ho
                                                 const AmenityIcon = getAmenityIcon(amenity);
 
                                                 return (
-                                                    <span key={amenity} className="flex items-center gap-1.5 text-xs text-gray-700">
+                                                    // min-w-0 lets this flex item shrink below its content's natural
+                                                    // width — without it, flex items refuse to shrink inside a grid
+                                                    // column, so long amenity names (e.g. "Minibar (Selected Rooms)")
+                                                    // overflow past the card edge instead of wrapping.
+                                                    <span
+                                                        key={amenity}
+                                                        className="flex min-w-0 items-center gap-1.5 text-xs text-gray-700"
+                                                    >
                                                         <AmenityIcon className="text-brand-navy h-3.5 w-3.5 shrink-0" />
-                                                        {amenity}
+                                                        <span className="min-w-0 break-words">{amenity}</span>
                                                     </span>
                                                 );
                                             })}

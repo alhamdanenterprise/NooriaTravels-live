@@ -105,19 +105,21 @@ export default function PackagePopup({
 
                         {/* Body */}
                         <div className="space-y-5 p-5 sm:p-8">
+                            {/* min-w-0 on each row lets it shrink to its grid column's width instead of
+                                refusing to shrink below a long hotel name's unwrapped width. */}
                             <div className="grid gap-4 rounded-xl border border-gray-100 p-4 sm:grid-cols-2">
-                                <p className="flex items-center gap-2.5 text-sm">
+                                <p className="flex min-w-0 items-center gap-2.5 text-sm">
                                     <Building2 className="text-brand-navy h-5 w-5 shrink-0" />
-                                    <span className="font-semibold text-gray-800">{pkg.makkah_hotel_name}</span>
+                                    <span className="min-w-0 font-semibold break-words text-gray-800">{pkg.makkah_hotel_name}</span>
                                     <span className="text-brand-gold flex shrink-0 items-center gap-0.5">
                                         {Array.from({ length: pkg.makkah_hotel_stars }).map((_, index) => (
                                             <Star key={index} className="fill-brand-gold h-3.5 w-3.5" />
                                         ))}
                                     </span>
                                 </p>
-                                <p className="flex items-center gap-2.5 text-sm">
+                                <p className="flex min-w-0 items-center gap-2.5 text-sm">
                                     <Building2 className="text-brand-navy h-5 w-5 shrink-0" />
-                                    <span className="font-semibold text-gray-800">{pkg.madinah_hotel_name}</span>
+                                    <span className="min-w-0 font-semibold break-words text-gray-800">{pkg.madinah_hotel_name}</span>
                                     <span className="text-brand-gold flex shrink-0 items-center gap-0.5">
                                         {Array.from({ length: pkg.madinah_hotel_stars }).map((_, index) => (
                                             <Star key={index} className="fill-brand-gold h-3.5 w-3.5" />

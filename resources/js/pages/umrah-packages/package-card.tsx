@@ -76,9 +76,12 @@ export default function PackageCard({
 
                 <div className={`mt-4 grid grid-cols-2 gap-x-3 gap-y-2.5 rounded-xl p-4 ${pkg.visa_included ? 'bg-green-50' : 'bg-gray-50'}`}>
                     {tags.map((tag) => (
-                        <span key={tag.label} className={`flex items-center gap-1.5 text-xs font-medium ${tag.tone}`}>
+                        // min-w-0 lets this flex item shrink to its grid column's width instead of
+                        // refusing to shrink below the label's full unwrapped width (e.g. "Direct
+                        // Flight Ticket Included"), which would otherwise overflow the card.
+                        <span key={tag.label} className={`flex min-w-0 items-center gap-1.5 text-xs font-medium ${tag.tone}`}>
                             <tag.icon className="h-3.5 w-3.5 shrink-0" />
-                            <span className="leading-tight text-gray-700">{tag.label}</span>
+                            <span className="min-w-0 leading-tight text-gray-700">{tag.label}</span>
                         </span>
                     ))}
                 </div>
