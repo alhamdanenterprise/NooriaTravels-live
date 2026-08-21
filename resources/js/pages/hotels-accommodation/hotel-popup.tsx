@@ -6,7 +6,7 @@ import { type SiteSettings } from '@/types';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { RiMapPinFill, RiStarFill, RiWhatsappFill } from '@remixicon/react';
 import { Building2, CalendarClock, CheckCircle2, ChevronLeft, ChevronRight, ExternalLink, Info, ShieldCheck, Tag, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const trustStrip = [
     { icon: Tag, title: 'Trusted by Pilgrims Worldwide', description: 'Thousands of happy guests on every journey.' },
@@ -17,14 +17,24 @@ const trustStrip = [
 export default function HotelPopup({ hotel, siteSettings, onClose }: { hotel: Hotel | null; siteSettings: SiteSettings; onClose: () => void }) {
     const [activePhoto, setActivePhoto] = useState(0);
     const [photoLoaded, setPhotoLoaded] = useState(false);
+    const imgRef = useRef<HTMLImageElement>(null);
 
     const photos = hotel?.gallery && hotel.gallery.length > 0 ? hotel.gallery : Array.from<string | null>({ length: 5 }).fill(null);
     const currentPhoto = photos[activePhoto];
 
     // Re-arm the loading skeleton whenever the visible photo changes, including when the
-    // popup is reopened on a different hotel.
+    // popup is reopened on a different hotel. The <img> element persists across photo
+    // changes (only its src attribute updates), so if the browser already has this photo
+    // cached, it can finish loading before this effect even runs - meaning the `load`
+    // event already fired and never will again, so the onLoad handler below would never
+    // run, leaving the image stuck invisible (opacity-0) forever. Checking `.complete`
+    // here catches that case; onLoad still handles the normal, still-loading case.
     useEffect(() => {
         setPhotoLoaded(false);
+
+        if (imgRef.current?.complete) {
+            setPhotoLoaded(true);
+        }
     }, [currentPhoto]);
 
     if (!hotel) {
@@ -116,6 +126,7 @@ export default function HotelPopup({ hotel, siteSettings, onClose }: { hotel: Ho
                                                     </div>
                                                 )}
                                                 <img
+                                                    ref={imgRef}
                                                     src={currentPhoto}
                                                     alt={hotel.name}
                                                     onLoad={() => setPhotoLoaded(true)}
