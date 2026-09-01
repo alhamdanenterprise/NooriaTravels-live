@@ -24,6 +24,8 @@ export default function HeroSection() {
         >
             <img
                 src="/images/hero.webp"
+                srcSet="/images/hero-640w.webp 640w, /images/hero-1024w.webp 1024w, /images/hero.webp 1672w"
+                sizes="100vw"
                 alt=""
                 fetchPriority="high"
                 decoding="async"

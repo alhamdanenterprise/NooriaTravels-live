@@ -10,6 +10,8 @@ export default function AboutHeroSection() {
         <section className="relative flex min-h-[460px] items-center overflow-hidden bg-white sm:min-h-[560px]">
             <img
                 src="/images/about/banner.webp"
+                srcSet="/images/about/banner-640w.webp 640w, /images/about/banner-1024w.webp 1024w, /images/about/banner.webp 1672w"
+                sizes="100vw"
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover object-[center_65%] opacity-95"
             />

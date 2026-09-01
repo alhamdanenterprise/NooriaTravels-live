@@ -3,6 +3,8 @@ export default function UmrahPackagesHeroSection() {
         <section className="relative flex min-h-[420px] items-center overflow-hidden bg-white sm:min-h-[520px]">
             <img
                 src="/images/packages/banner.webp"
+                srcSet="/images/packages/banner-640w.webp 640w, /images/packages/banner-1024w.webp 1024w, /images/packages/banner.webp 1916w"
+                sizes="100vw"
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover object-[center_65%] opacity-95"
             />

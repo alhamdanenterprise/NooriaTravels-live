@@ -3,6 +3,8 @@ export default function HotelsHeroSection() {
         <section className="relative flex min-h-[420px] items-center overflow-hidden bg-white sm:min-h-[520px]">
             <img
                 src="/images/hotels/banner.webp"
+                srcSet="/images/hotels/banner-640w.webp 640w, /images/hotels/banner-1024w.webp 1024w, /images/hotels/banner.webp 1672w"
+                sizes="100vw"
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover object-[center_65%] opacity-95"
             />
